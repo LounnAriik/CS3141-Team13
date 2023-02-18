@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Current Classes</h1>
+        <h1 className='Current'>Current Classes</h1>
         <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="classes">
             {(provided) => (
@@ -69,6 +69,34 @@ function App() {
             )}
           </Droppable>
         </DragDropContext>
+        <h1 className='Avaliable'>Avaliable Courses</h1>
+         <table></table>
+
+         
+        <h1 className='Taken'>Taken Courses</h1>
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="taken">
+            {(provided) => (
+              <ul className="taken" {...provided.droppableProps} ref={provided.innerRef}>
+                {classes.map(({id, name}, index) => {
+                  return (
+                    <Draggable key={id} draggableId={id} index={index}>
+                      {(provided) => (
+                        <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                          <p>
+                            { name }
+                          </p>
+                        </li>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
+
       </header>
     </div>
   );
