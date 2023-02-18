@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import './App.css';
 
-const listOfClasses = [
+const listOfAvailableClasses = [
   {
     id: 'prog',
     name: 'Intro to Programming',
@@ -30,13 +30,41 @@ const listOfClasses = [
   }
 ]
 
+const listOfCurrentClasses = [
+  {
+    id: 'prog',
+    name: 'Current Class 1',
+    
+  },
+  {
+    id: 'calc',
+    name: 'Current Class 2',
+ 
+  },
+  {
+    id: 'comp',
+    name: 'Current Class 3',
+   
+  },
+  {
+    id: 'chem',
+    name: 'Current Class 4',
+   
+  },
+  {
+    id: 'elec',
+    name: 'Current Class 5',
+    
+  }
+]
+
 function App() {
-  const [classes, updateCharacters] = useState(listOfClasses);
+  const [availableclasses, updateCharacters] = useState(listOfAvailableClasses);
 
   function handleOnDragEnd(result) {
     if (!result.destination) return;
 
-    const items = Array.from(classes);
+    const items = Array.from(availableclasses);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
@@ -51,7 +79,7 @@ function App() {
           <Droppable droppableId="classes">
             {(provided) => (
               <ul className="classes" {...provided.droppableProps} ref={provided.innerRef}>
-                {classes.map(({id, name}, index) => {
+                {availableclasses.map(({id, name}, index) => {
                   return (
                     <Draggable key={id} draggableId={id} index={index}>
                       {(provided) => (
@@ -67,7 +95,7 @@ function App() {
                 {provided.placeholder}
               </ul>
             )}
-          </Droppable>
+          </Droppable> 
         </DragDropContext>
         <h1 className='Avaliable'>Avaliable Courses</h1>
          <table></table>
