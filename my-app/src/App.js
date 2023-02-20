@@ -106,7 +106,7 @@ function App() {
           <Droppable droppableId="taken">
             {(provided) => (
               <ul className="taken" {...provided.droppableProps} ref={provided.innerRef}>
-                {classes.map(({id, name}, index) => {
+                {availableclasses.map(({id, name}, index) => {
                   return (
                     <Draggable key={id} draggableId={id} index={index}>
                       {(provided) => (
