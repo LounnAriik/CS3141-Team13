@@ -1,4 +1,4 @@
-npminpmimport React, { useState } from "react";
+import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4";
 import './App.css';
@@ -13,15 +13,15 @@ const itemsFromBackend = [
 
 const columnsFromBackend = {
   [uuid()]: {
-    name: "Avaliable",
-    items: []
-  },
-  [uuid()]: {
-    name: "Current",
+    name: "Avaliable Courses",
     items: itemsFromBackend
   },
   [uuid()]: {
-    name: "Taken",
+    name: "Course Workspace",
+    items: []
+  },
+  [uuid()]: {
+    name: "Taken Courses",
     items: []
   }
 };
@@ -67,6 +67,21 @@ function clickClass(){
   console.log('click')
 }
 
+// This function is intended to build the list of classes offered for a particular semester and year
+function buildCourseByYearSelect(year, semester){
+
+  HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester;
+  
+  // Build HTTP Request Body
+  // Send Request
+  // Set Response to a JSON array object
+  // Parse JSON response
+      // For each element in JSON array
+          // itemsFromBackend = itemsFromBackend.AppendToArray({ id: uuid(), content: + element.CourseTitle + })
+  
+  // Resolve Response objects        
+}
+
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
@@ -74,6 +89,7 @@ function App() {
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
+
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div
@@ -85,7 +101,7 @@ function App() {
               key={columnId}
             >
               <h2  style={{userSelect:"none", color: "#D8DAD4"}}>{column.name}</h2>
-              <div style={{ margin: 8 }}>
+              <div style={{ margin: 80 }}>
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
                     return (
