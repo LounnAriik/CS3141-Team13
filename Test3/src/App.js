@@ -67,6 +67,8 @@ function clickClass(){
   console.log('click')
 }
 
+// Test
+
 // This function is intended to build the list of classes offered for a particular semester and year
 function buildCourseByYearSelect(year, semester){
 
