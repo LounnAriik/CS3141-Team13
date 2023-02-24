@@ -101,7 +101,7 @@ function App() {
               key={columnId}
             >
               <h2  style={{userSelect:"none", color: "#D8DAD4"}}>{column.name}</h2>
-              <div style={{ margin: 80 }}>
+              <div style={{ margin: 88 }}>
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
                     return (
