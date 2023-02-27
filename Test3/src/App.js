@@ -90,10 +90,16 @@ function buildCourseByYearSelect(registrationClass, semester){
   console.log(year);
 
   HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester;
+  var HTTPRequest = new XMLHttpRequest();
+  var HTTPResponse;
 
+  HTTPRequest.open("GET", HTTPRequestURL);
+  HTTPRequest.send
 
+  if (HTTPRequest.responseText != null) {
+    HTTPResponse = HTTPRequest.reponseText;
+  }
   
-
 }
 
 function App() {
