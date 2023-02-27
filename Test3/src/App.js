@@ -70,8 +70,13 @@ function clickClass(){
 // Test 2/27/23 11:29 am
 
 // This function is intended to build the list of classes offered for a particular semester and year
-function buildCourseByYearSelect(year, semester){
+function buildCourseByYearSelect(semester){
 
+  var year = date.getYear();
+
+  console.log(year);
+
+  
   HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester;
   
   // Build HTTP Request Body
