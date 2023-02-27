@@ -83,24 +83,28 @@ function buildCourseByYearSelect(registrationClass, semester){
   
       // [body]?[value]?[45]?["title" eq "CS"]
 
-  // Default Year, will change with drop-down select
+  // Default Year and semester, will change with drop-down select
   registrationClass = "First Year"
+  semester = "FALL"
 
-  var year = new Date().getFullYear();
-  console.log(year);
+  var year = new Date().getFullYear()
+  console.log(year)
 
-  HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester;
-  var HTTPRequest = new XMLHttpRequest();
+  HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester
+  var HTTPRequest = new XMLHttpRequest()
   var HTTPResponse;
 
-  HTTPRequest.open("GET", HTTPRequestURL);
+  HTTPRequest.open("GET", HTTPRequestURL)
   HTTPRequest.send
 
   if (HTTPRequest.responseText != null) {
-    HTTPResponse = HTTPRequest.reponseText;
+    HTTPResponse = HTTPRequest.reponseText
+    console.log(HTTPResponse)
   }
   
 }
+
+
 
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
