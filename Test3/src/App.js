@@ -68,10 +68,15 @@ function clickClass(){
   console.log('click');
 }
 
-// Test
+// Test 2/27/23 11:29 am
 
 // This function is intended to build the list of classes offered for a particular semester and year
-function buildCourseByYearSelect(year, semester){
+function buildCourseByYearSelect(registrationClass, semester){
+
+  registrationClass = "First Year"
+
+  var year = new Date().getFullYear();
+  console.log(year);
 
   HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester;
   
@@ -82,7 +87,9 @@ function buildCourseByYearSelect(year, semester){
       // For each element in JSON array
           // itemsFromBackend = itemsFromBackend.AppendToArray({ id: uuid(), content: + element.CourseTitle + })
   
-  // Resolve Response objects        
+  // Resolve Response objects   
+  
+  // [body]?[value]?[45]?["title" eq "CS"]
 }
 
 function App() {
