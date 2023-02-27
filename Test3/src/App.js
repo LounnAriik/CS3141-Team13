@@ -4,7 +4,7 @@ import uuid from "uuid/v4";
 import './App.css';
 
 const itemsFromBackend = [
-  { id: uuid(), content: "Intro to C" },
+  { id: uuid(), content: "Intro to CS" },
   { id: uuid(), content: "Calculus" },
   { id: uuid(), content: "Composition" },
   { id: uuid(), content: "Intro to Chemistry" },
