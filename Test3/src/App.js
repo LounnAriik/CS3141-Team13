@@ -16,10 +16,10 @@ const columnsFromBackend = {
     name: "Avaliable Courses",
     items: itemsFromBackend
   },
-  [uuid()]: {
+ /* [uuid()]: {
     name: "Course Workspace",
     items: []
-  },
+  },*/
   [uuid()]: {
     name: "Taken Courses",
     items: []
@@ -63,8 +63,9 @@ const onDragEnd = (result, columns, setColumns) => {
   }
 };
 
+console.log(new Date().getFullYear());
 function clickClass(){
-  console.log('click')
+  console.log('click');
 }
 
 
@@ -98,7 +99,7 @@ function buildCourseByYearSelect(registrationClass, semester){
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
-    <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+    <div className = 'head' style={{ display: "flex", justifyContent: "right", height: "100%" }}>
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
