@@ -88,7 +88,7 @@ function buildCourseByYearSelect(registrationClass, semester){
   
   // Resolve Response objects   
   
-  // [body]?[value]?[45]?["title"]
+  // [body]?[value]?[45]?["title" eq "CS"]
 }
 
 function App() {
