@@ -67,7 +67,7 @@ function clickClass(){
   console.log('click')
 }
 
-// Test
+// Test 2/27/23 11:29 am
 
 // This function is intended to build the list of classes offered for a particular semester and year
 function buildCourseByYearSelect(year, semester){
