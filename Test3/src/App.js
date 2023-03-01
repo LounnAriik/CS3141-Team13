@@ -120,6 +120,7 @@ const onDragEnd = (result, columns, setColumns) => {
 
 console.log(new Date().getFullYear());
 function clickClass(){
+  buildCourseByTransfer();
   console.log('click');
   buildCourseByYearSelect("First Year", "FALL");
 }
@@ -194,6 +195,18 @@ function buildCourseByYearSelect(registrationClass, semester){
   
 }
 
+function buildCourseByTransfer() {
+  var collegeNames = [];
+  var RequestURL = "https://api.michigantechcourses.com/transfer-courses?updatedSince=2020-01-01T11%3A45%3A01.733Z";
+  var Request = new XMLHttpRequest();
+
+  Request.onload = function() {
+    console.log('Retrieved');
+  }
+
+  Request.open("GET", RequestURL);
+  Request.send();
+}
 
 
 function App() {
