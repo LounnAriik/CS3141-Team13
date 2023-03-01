@@ -68,29 +68,43 @@ function clickClass(){
   console.log('click');
 }
 
-// Test 2/27/23 11:29 am
 
 // This function is intended to build the list of classes offered for a particular semester and year
 function buildCourseByYearSelect(registrationClass, semester){
 
-  registrationClass = "First Year"
-
-  var year = new Date().getFullYear();
-  console.log(year);
-
-  HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester;
-  
-  // Build HTTP Request Body
-  // Send Request
-  // Set Response to a JSON array object
-  // Parse JSON response
-      // For each element in JSON array
+  // Overview:
+      // Build HTTP Request Body
+      // Send Request
+      // Set Response to a JSON array object
+      // Parse JSON response
+          // For each element in JSON array
           // itemsFromBackend = itemsFromBackend.AppendToArray({ id: uuid(), content: + element.CourseTitle + })
+      // Resolve Response objects   
   
-  // Resolve Response objects   
+      // [body]?[value]?[45]?["title" eq "CS"]
+
+  // Default Year and semester, will change with drop-down select
+  registrationClass = "First Year"
+  semester = "FALL"
+
+  var year = new Date().getFullYear()
+  console.log(year)
+
+  HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester
+  var HTTPRequest = new XMLHttpRequest()
+  var HTTPResponse;
+
+  HTTPRequest.open("GET", HTTPRequestURL)
+  HTTPRequest.send
+
+  if (HTTPRequest.responseText != null) {
+    HTTPResponse = HTTPRequest.reponseText
+    console.log(HTTPResponse)
+  }
   
-  // [body]?[value]?[45]?["title" eq "CS"]
 }
+
+
 
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
