@@ -4,7 +4,7 @@ import uuid from "uuid/v4";
 import './App.css';
 
 const itemsFromBackend = [
-  { id: uuid(), content: "Intro to CS" },
+  { id: uuid(), content: "Intro to C" },
   { id: uuid(), content: "Calculus" },
   { id: uuid(), content: "Composition" },
   { id: uuid(), content: "Intro to Chemistry" },
@@ -16,10 +16,10 @@ const columnsFromBackend = {
     name: "Avaliable Courses",
     items: itemsFromBackend
   },
- /* [uuid()]: {
+  [uuid()]: {
     name: "Course Workspace",
     items: []
-  },*/
+  },
   [uuid()]: {
     name: "Taken Courses",
     items: []
@@ -63,57 +63,34 @@ const onDragEnd = (result, columns, setColumns) => {
   }
 };
 
-console.log(new Date().getFullYear());
 function clickClass(){
-  console.log('click');
+  console.log('click')
 }
 
+// Test
 
 // This function is intended to build the list of classes offered for a particular semester and year
-function buildCourseByYearSelect(registrationClass, semester){
+function buildCourseByYearSelect(year, semester){
 
-  // Overview:
-      // Build HTTP Request Body
-      // Send Request
-      // Set Response to a JSON array object
-      // Parse JSON response
-          // For each element in JSON array
+  HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester;
+  
+  // Build HTTP Request Body
+  // Send Request
+  // Set Response to a JSON array object
+  // Parse JSON response
+      // For each element in JSON array
           // itemsFromBackend = itemsFromBackend.AppendToArray({ id: uuid(), content: + element.CourseTitle + })
-      // Resolve Response objects   
   
-      // [body]?[value]?[45]?["title" eq "CS"]
-
-  // Default Year and semester, will change with drop-down select
-  registrationClass = "First Year"
-  semester = "FALL"
-
-  var year = new Date().getFullYear()
-  console.log(year)
-
-  HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester
-  var HTTPRequest = new XMLHttpRequest()
-  var HTTPResponse;
-
-  HTTPRequest.open("GET", HTTPRequestURL)
-  HTTPRequest.send
-
-  if (HTTPRequest.responseText != null) {
-    HTTPResponse = HTTPRequest.reponseText
-    console.log(HTTPResponse)
-  }
-  
+  // Resolve Response objects        
 }
-
-
 
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
-    <div className = 'head' style={{ display: "flex", justifyContent: "right", height: "100%" }}>
+    <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%" }}>
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
-
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div
@@ -138,7 +115,6 @@ function App() {
                             : "lightgrey",
                           padding: 4,
                           width: 250,
-                          minHeight: 500
                         }}
                       >
                         {column.items.map((item, index) => {
@@ -183,7 +159,7 @@ function App() {
             </div>
           );
         })}
-      </DragDropContext>
+      </DragDropContext>      
     </div>
   );
 }
