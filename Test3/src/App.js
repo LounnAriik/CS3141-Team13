@@ -4,17 +4,72 @@ import uuid from "uuid/v4";
 import './App.css';
 
 const itemsFromBackend = [
-  { id: uuid(), content: "Intro to C" },
+  { id: uuid(), content: "Intro to CS" },
   { id: uuid(), content: "Calculus" },
   { id: uuid(), content: "Composition" },
   { id: uuid(), content: "Intro to Chemistry" },
-  { id: uuid(), content: "Elective" }
+  { id: uuid(), content: "Technical Elective" }
+];
+
+const firstYearSpringCourses = [
+  { id: uuid(), content: "Intro to Programming II" },
+  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Global Issues" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Co-Curricular" }
+];
+
+const secondYearFallCourses = [
+  { id: uuid(), content: "Data Structures" },
+  { id: uuid(), content: "HW/SW Interface Programming" },
+  { id: uuid(), content: "Formal Models of Computation" },
+  { id: uuid(), content: "Statistical Methods" },
+  { id: uuid(), content: "HASS Elective" }
+];
+
+const secondYearSpringCourses = [
+  { id: uuid(), content: "Intro to Database Systems" },
+  { id: uuid(), content: "Team Software Project" },
+  { id: uuid(), content: "Elective Math" },
+  { id: uuid(), content: "HASS Elective" },
+  { id: uuid(), content: "Co-Curricular" }
+];
+
+const thirdYearFallCourses = [
+  { id: uuid(), content: "Concurrent Computing" },
+  { id: uuid(), content: "Computer Organization" },
+  { id: uuid(), content: "Ethical/Social Aspects of Computing" },
+  { id: uuid(), content: "CS Elective" },
+  { id: uuid(), content: "Co-Curricular" }
+];
+
+const thirdYearSpringCourses = [
+  { id: uuid(), content: "Systems Programming" },
+  { id: uuid(), content: "CS Elective" },
+  { id: uuid(), content: "HASS Elective" },
+  { id: uuid(), content: "Technical Elective" },
+  { id: uuid(), content: "Co-Curricular" }
+];
+
+const fourthYearFallCourses = [
+  { id: uuid(), content: "Intro to Algorithms" },
+  { id: uuid(), content: "CS Elective" },
+  { id: uuid(), content: "Technical Elective" },
+  { id: uuid(), content: "Co-curricular" }
+];
+
+const fourthYearSpringCourses = [
+  { id: uuid(), content: "Programming Languages" },
+  { id: uuid(), content: "Technical Elective" },
+  { id: uuid(), content: "CS Elective" },
+  { id: uuid(), content: "Technical and Professional Communication" },
+  { id: uuid(), content: "Technology and Society Elective" }
 ];
 
 const columnsFromBackend = {
   [uuid()]: {
     name: "Avaliable Courses",
-    items: itemsFromBackend
+    items: referenceCoursesByYearAndSemester("First Year", "Fall")
   },
   [uuid()]: {
     name: "Course Workspace",
@@ -64,10 +119,9 @@ const onDragEnd = (result, columns, setColumns) => {
 };
 
 function clickClass(){
-  console.log('click')
+  console.log('click');
 }
 
-// Test
 
 // This function is intended to build the list of classes offered for a particular semester and year
 function buildCourseByYearSelect(year, semester){
@@ -81,8 +135,30 @@ function buildCourseByYearSelect(year, semester){
       // For each element in JSON array
           // itemsFromBackend = itemsFromBackend.AppendToArray({ id: uuid(), content: + element.CourseTitle + })
   
-  // Resolve Response objects        
+      // [body]?[value]?[45]?["title" eq "CS"]
+
+  // Default Year and semester, will change with drop-down select
+  registrationClass = "First Year"
+  semester = "FALL"
+
+  var year = new Date().getFullYear()
+  console.log(year)
+
+  HTTPRequestURL = "https://api.michigantechcourses.com/courses?year=" + year + "&semester=" + semester
+  var HTTPRequest = new XMLHttpRequest()
+  var HTTPResponse;
+
+  HTTPRequest.open("GET", HTTPRequestURL)
+  HTTPRequest.send
+
+  if (HTTPRequest.responseText != null) {
+    HTTPResponse = HTTPRequest.reponseText
+    console.log(HTTPResponse)
+  }
+  
 }
+
+
 
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
