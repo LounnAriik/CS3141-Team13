@@ -233,11 +233,12 @@ function App() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                
               }}
               key={columnId}
             >
               <h2  style={{userSelect:"none", color: "#D8DAD4"}}>{column.name}</h2>
-              <div style={{ margin: 80 }}>
+              <div style={{display:"flex", margin: 80 }}>
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
                     return (
@@ -245,12 +246,14 @@ function App() {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         style={{
+                          display: "flex",
+                          flexDirection: "column",
                           background: snapshot.isDraggingOver
                             ? "lightblue"
                             : "lightgrey",
                           padding: 4,
                           width: 250,
-                          minHeight: 500
+                          minHeight: 100
                         }}
                       >
                         {column.items.map((item, index) => {
