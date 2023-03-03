@@ -159,6 +159,28 @@ function buildCourseByYearSelect(year, semester){
   
 }
 
+// This function is intended to build a class transfered from another school
+function buildCourseByTransfer(COLLEGE, SUBJECT, CRSE) {
+  var RequestURL = "https://api.michigantechcourses.com/transfer-courses?updatedSince=2020-01-01T11%3A45%3A01.733Z";
+  var Request = new XMLHttpRequest();
+
+  Request.onload = function() {
+    var transferArray = JSON.parse(Request.responseText);
+    for (var i = 0; i < transferArray.length; i++) {
+      if (transferArray[i].fromCollege == COLLEGE
+      && transferArray[i].fromSubject == SUBJECT 
+      && transferArray[i].fromCRSE == CRSE) {
+        if (!(transferArray[i].title == ("Unsigned Transfer" || "No Course Equivalent")))
+        // Need to figure out how to create item and place into column
+        // itemsFromBackend.push({ id: uuid(), content:"" + transferArray[i].title + ""});
+        break;
+      }
+    }
+  }
+
+  Request.open("GET", RequestURL, true);
+  Request.send();
+}
 
 
 function App() {
