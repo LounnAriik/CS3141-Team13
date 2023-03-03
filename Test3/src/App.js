@@ -219,23 +219,26 @@ function App() {
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
-        <div class="custom-select">
-          <select>
-            <option value="0">Select Year:</option>
-            <option value="1">Year 1</option>
-            <option value="2">Year 2</option>
-            <option value="3">Year 3</option>
-            <option value="4">Year 4</option>
-          </select>
-        </div>
+        <div class="topnav">
+          <a class="active" href="nothing"></a>
+            <div class="custom-select">
+             <select>
+              <option value="0">Select Year:</option>
+              <option value="1">Year 1</option>
+              <option value="2">Year 2</option>
+              <option value="3">Year 3</option>
+              <option value="4">Year 4</option>
+             </select>
+            </div>
 
-        <div class="custom-select">
-          <select>
-            <option value="0">Select Semester:</option>
-            <option value="1">Fall Semester</option>
-            <option value="2">Spring Semester</option>
-            <option value="3">Summer Semester</option>
-          </select>
+            <div class="custom-select">
+             <select>
+              <option value="0">Select Semester:</option>
+              <option value="1">Fall Semester</option>
+              <option value="2">Spring Semester</option>
+              <option value="3">Summer Semester</option>
+             </select>
+          </div>
         </div>
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
