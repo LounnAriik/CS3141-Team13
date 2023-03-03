@@ -69,7 +69,8 @@ const fourthYearSpringCourses = [
 const columnsFromBackend = {
   [uuid()]: {
     name: "Avaliable Courses",
-    items: referenceCoursesByYearAndSemester("First Year", "Fall")
+    //items: referenceCoursesByYearAndSemester("First Year", "Fall")
+    items: itemsFromBackend
   },
   [uuid()]: {
     name: "Course Workspace",
