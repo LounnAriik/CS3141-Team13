@@ -214,7 +214,7 @@ function App() {
                                     style={{
                                       userSelect: "none",
                                       padding: 16,
-                                      margin: "0 0 8px 0",
+                                      margin: "4px 2px 4px 2px",
                                       minHeight: "50px",
                                       backgroundColor: snapshot.isDragging
                                         ? "#263B4A"
