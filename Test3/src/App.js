@@ -228,6 +228,15 @@ function App() {
             <option value="4">Year 4</option>
           </select>
         </div>
+
+        <div class="custom-select">
+          <select>
+            <option value="0">Select Semester:</option>
+            <option value="1">Fall Semester</option>
+            <option value="2">Spring Semester</option>
+            <option value="3">Summer Semester</option>
+          </select>
+        </div>
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div
