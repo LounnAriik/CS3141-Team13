@@ -67,18 +67,21 @@ const fourthYearSpringCourses = [
 ];
 
 
+var hardCodedRegistrationClass = "Third Year";
+var hardCodedSemester = "Spring";
+
 const columnsFromBackend = {
-  [uuid()]: {
+  [0]: {
     name: "Avaliable Courses",
-    items: referenceCoursesByYearAndSemester("Third Year", "Spring")
+    items: referenceAvailableCourses(hardCodedRegistrationClass, hardCodedSemester)
   },
   [uuid()]: {
     name: "Course Workspace",
-    items: []
+    items: referenceWorkspaceCourses(hardCodedRegistrationClass, hardCodedSemester)
   },
   [uuid()]: {
     name: "Taken Courses",
-    items: []
+    items: referenceTakenCourses(hardCodedRegistrationClass, hardCodedSemester)
   }
 };
 
@@ -123,7 +126,7 @@ function clickClass(){
   console.log('click');
 }
 
-function referenceCoursesByYearAndSemester(registrationClass, semester){
+function referenceAvailableCourses(registrationClass, semester){
 
   if (registrationClass == "First Year" && semester == "Fall") {
       return firstYearFallCourses;
@@ -150,8 +153,67 @@ function referenceCoursesByYearAndSemester(registrationClass, semester){
     return fourthYearSpringCourses;
   }  
 
+}
+
+function referenceWorkspaceCourses(registrationClass, semester){
+
+  if (registrationClass == "First Year" && semester == "Fall") {
+      return [];
+  }
+  if (registrationClass == "First Year" && semester == "Spring") {
+    return [];
+  }
+  if (registrationClass == "Second Year" && semester == "Fall") {
+    return [];
+  }
+  if (registrationClass == "Second Year" && semester == "Spring") {
+    return [];
+  }
+  if (registrationClass == "Third Year" && semester == "Fall") {
+    return [];
+  }
+  if (registrationClass == "Third Year" && semester == "Spring") {
+    return [];
+  }
+  if (registrationClass == "Fourth Year" && semester == "Fall") {
+    return [];
+  }
+  if (registrationClass == "Fourth Year" && semester == "Spring") {
+    return [];
+  }  
 
 }
+
+
+function referenceTakenCourses(registrationClass, semester){
+
+  if (registrationClass == "First Year" && semester == "Fall") {
+      return [];
+  }
+  if (registrationClass == "First Year" && semester == "Spring") {
+    return firstYearFallCourses;
+  }
+  if (registrationClass == "Second Year" && semester == "Fall") {
+    return firstYearSpringCourses;
+  }
+  if (registrationClass == "Second Year" && semester == "Spring") {
+    return secondYearFallCourses;
+  }
+  if (registrationClass == "Third Year" && semester == "Fall") {
+    return secondYearSpringCourses;
+  }
+  if (registrationClass == "Third Year" && semester == "Spring") {
+    return thirdYearFallCourses;
+  }
+  if (registrationClass == "Fourth Year" && semester == "Fall") {
+    return thirdYearSpringCourses;
+  }
+  if (registrationClass == "Fourth Year" && semester == "Spring") {
+    return fourthYearFallCourses;
+  }  
+
+}
+
 
 // This function is intended to build the list of classes offered for a particular semester and year
 function buildCourseByYearSelect(year, semester){
