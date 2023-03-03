@@ -3,7 +3,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4";
 import './App.css';
 
-const itemsFromBackend = [
+const firstYearFallCourses = [
   { id: uuid(), content: "Intro to CS" },
   { id: uuid(), content: "Calculus" },
   { id: uuid(), content: "Composition" },
@@ -66,11 +66,11 @@ const fourthYearSpringCourses = [
   { id: uuid(), content: "Technology and Society Elective" }
 ];
 
+
 const columnsFromBackend = {
   [uuid()]: {
     name: "Avaliable Courses",
-    //items: referenceCoursesByYearAndSemester("First Year", "Fall")
-    items: itemsFromBackend
+    items: referenceCoursesByYearAndSemester("Third Year", "Spring")
   },
   [uuid()]: {
     name: "Course Workspace",
@@ -123,6 +123,35 @@ function clickClass(){
   console.log('click');
 }
 
+function referenceCoursesByYearAndSemester(registrationClass, semester){
+
+  if (registrationClass == "First Year" && semester == "Fall") {
+      return firstYearFallCourses;
+  }
+  if (registrationClass == "First Year" && semester == "Spring") {
+    return firstYearSpringCourses;
+  }
+  if (registrationClass == "Second Year" && semester == "Fall") {
+    return secondYearFallCourses;
+  }
+  if (registrationClass == "Second Year" && semester == "Spring") {
+    return secondYearSpringCourses;
+  }
+  if (registrationClass == "Third Year" && semester == "Fall") {
+    return thirdYearFallCourses;
+  }
+  if (registrationClass == "Third Year" && semester == "Spring") {
+    return thirdYearSpringCourses;
+  }
+  if (registrationClass == "Fourth Year" && semester == "Fall") {
+    return fourthYearFallCourses;
+  }
+  if (registrationClass == "Fourth Year" && semester == "Spring") {
+    return fourthYearSpringCourses;
+  }  
+
+
+}
 
 // This function is intended to build the list of classes offered for a particular semester and year
 function buildCourseByYearSelect(year, semester){
