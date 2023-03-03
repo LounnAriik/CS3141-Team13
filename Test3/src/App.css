@@ -9,3 +9,9 @@
     width: 100%;
     border-style: 1px;
 }
+
+.transfer {
+    position: absolute;
+    left:    0;
+    bottom:   0;
+  }

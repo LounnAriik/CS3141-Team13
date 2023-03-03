@@ -300,6 +300,11 @@ function App() {
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
+        
+        <div className="transfer">
+	          <button onClick={() => {buildCourseByTransfer()}}>Transfer</button>
+        </div>
+        
         <div class="topnav">
           <a class="active" href="nothing"></a>
             <div class="custom-select">
