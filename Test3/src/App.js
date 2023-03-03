@@ -67,18 +67,21 @@ const fourthYearSpringCourses = [
 ];
 
 
+var hardCodedRegistrationClass = "Third Year";
+var hardCodedSemester = "Spring";
+
 const columnsFromBackend = {
-  [uuid()]: {
+  [0]: {
     name: "Avaliable Courses",
-    items: referenceCoursesByYearAndSemester("Third Year", "Spring")
+    items: referenceAvailableCourses(hardCodedRegistrationClass, hardCodedSemester)
   },
   [uuid()]: {
     name: "Course Workspace",
-    items: []
+    items: referenceWorkspaceCourses(hardCodedRegistrationClass, hardCodedSemester)
   },
   [uuid()]: {
     name: "Taken Courses",
-    items: []
+    items: referenceTakenCourses(hardCodedRegistrationClass, hardCodedSemester)
   }
 };
 
@@ -123,7 +126,7 @@ function clickClass(){
   console.log('click');
 }
 
-function referenceCoursesByYearAndSemester(registrationClass, semester){
+function referenceAvailableCourses(registrationClass, semester){
 
   if (registrationClass == "First Year" && semester == "Fall") {
       return firstYearFallCourses;
@@ -150,8 +153,67 @@ function referenceCoursesByYearAndSemester(registrationClass, semester){
     return fourthYearSpringCourses;
   }  
 
+}
+
+function referenceWorkspaceCourses(registrationClass, semester){
+
+  if (registrationClass == "First Year" && semester == "Fall") {
+      return [];
+  }
+  if (registrationClass == "First Year" && semester == "Spring") {
+    return [];
+  }
+  if (registrationClass == "Second Year" && semester == "Fall") {
+    return [];
+  }
+  if (registrationClass == "Second Year" && semester == "Spring") {
+    return [];
+  }
+  if (registrationClass == "Third Year" && semester == "Fall") {
+    return [];
+  }
+  if (registrationClass == "Third Year" && semester == "Spring") {
+    return [];
+  }
+  if (registrationClass == "Fourth Year" && semester == "Fall") {
+    return [];
+  }
+  if (registrationClass == "Fourth Year" && semester == "Spring") {
+    return [];
+  }  
 
 }
+
+
+function referenceTakenCourses(registrationClass, semester){
+
+  if (registrationClass == "First Year" && semester == "Fall") {
+      return [];
+  }
+  if (registrationClass == "First Year" && semester == "Spring") {
+    return firstYearFallCourses;
+  }
+  if (registrationClass == "Second Year" && semester == "Fall") {
+    return firstYearSpringCourses;
+  }
+  if (registrationClass == "Second Year" && semester == "Spring") {
+    return secondYearFallCourses;
+  }
+  if (registrationClass == "Third Year" && semester == "Fall") {
+    return secondYearSpringCourses;
+  }
+  if (registrationClass == "Third Year" && semester == "Spring") {
+    return thirdYearFallCourses;
+  }
+  if (registrationClass == "Fourth Year" && semester == "Fall") {
+    return thirdYearSpringCourses;
+  }
+  if (registrationClass == "Fourth Year" && semester == "Spring") {
+    return fourthYearFallCourses;
+  }  
+
+}
+
 
 // This function is intended to build the list of classes offered for a particular semester and year
 function buildCourseByYearSelect(year, semester){
@@ -189,22 +251,41 @@ function buildCourseByYearSelect(year, semester){
 }
 
 // This function is intended to build a class transfered from another school
-function buildCourseByTransfer(COLLEGE, SUBJECT, CRSE) {
+function buildCourseByTransfer() {
+  var text;
   var RequestURL = "https://api.michigantechcourses.com/transfer-courses?updatedSince=2020-01-01T11%3A45%3A01.733Z";
   var Request = new XMLHttpRequest();
 
+  // Runs after api is loaded
   Request.onload = function() {
+    // Opens popup windows to get user inputs
+    let COLLEGE = prompt("Enter the name of the college transfering from:", "");
+    let SUBJECT = prompt("Enter the subject of the course from the transfering college:", "");
+    let CRSE = prompt("Enter the crse of the course from the transfering college:", "");
+    // Converts api webpage to array
     var transferArray = JSON.parse(Request.responseText);
+    // Loops through array looking for item matching user inputs
     for (var i = 0; i < transferArray.length; i++) {
+      // Checks if array item matches user inputs
       if (transferArray[i].fromCollege == COLLEGE
       && transferArray[i].fromSubject == SUBJECT 
       && transferArray[i].fromCRSE == CRSE) {
-        if (!(transferArray[i].title == ("Unsigned Transfer" || "No Course Equivalent")))
-        // Need to figure out how to create item and place into column
-        // itemsFromBackend.push({ id: uuid(), content:"" + transferArray[i].title + ""});
-        break;
+        // Checks if chosen item is an actual class
+        if (transferArray[i].title != ("Unassigned Transfer" && "No Course Equivalent")) {
+          // Need to figure out how to create item and place into column
+          // itemsFromBackend.push({ id: uuid(), content:"" + transferArray[i].title + ""});
+          text = "Course Added";
+          break;
+        } else {
+          text = "No Course Equivalent or Unassigned Transfer";
+          break;
+        }
       }
+      // Code runs if no classes matching user inputs is found
+      text = "Invalid Input(s)";
     }
+    // Prints outcome text
+    alert(text);
   }
 
   Request.open("GET", RequestURL, true);
