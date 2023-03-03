@@ -2,7 +2,12 @@
     user-select: none;
 }
 
+.nav{
+    margin-top: 50px
+}
+
 .topnav{
+    word-wrap: break-word ;
     content: width=device-width, initial-scale=1;
     background-color: #FFFB07;
     position: absolute;

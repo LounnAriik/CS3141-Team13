@@ -296,13 +296,14 @@ function buildCourseByTransfer() {
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
-    <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%" }}>
+    <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
         <div class="topnav">
           <a class="active" href="nothing"></a>
-            <div class="custom-select">
+          <ul> 
+            <li class="custom-select">
              <select>
               <option value="0">Select Year:</option>
               <option value="1">Year 1</option>
@@ -310,25 +311,25 @@ function App() {
               <option value="3">Year 3</option>
               <option value="4">Year 4</option>
              </select>
-            </div>
+            </li>
 
-            <div class="custom-select">
+            <li class="custom-select">
              <select>
               <option value="0">Select Semester:</option>
               <option value="1">Fall Semester</option>
               <option value="2">Spring Semester</option>
               <option value="3">Summer Semester</option>
              </select>
-          </div>
+            </li>
+          </ul>
         </div>
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
-            <div
+            <div class="nav"
               style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                
               }}
               key={columnId}
             >
