@@ -123,7 +123,8 @@ const onDragEnd = (result, columns, setColumns) => {
 };
 
 function clickClass(){
-  console.log('click');
+  var timestamp = new Date();
+  console.log(timestamp);
 }
 
 function referenceAvailableCourses(registrationClass, semester){
@@ -318,7 +319,7 @@ function App() {
              </select>
             </li>
 
-            <li class="custom-select">
+            <li class="custom-select" >
              <select>
               <option value="0">Select Semester:</option>
               <option value="1">Fall Semester</option>
