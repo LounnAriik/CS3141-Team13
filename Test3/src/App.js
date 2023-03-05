@@ -327,6 +327,9 @@ function App() {
               <option value="3">Summer Semester</option>
              </select>
             </li>
+            <li class="custom-select">
+              <div class = "about">About</div>
+            </li>
           </ul>
         </div>
         {Object.entries(columns).map(([columnId, column], index) => {

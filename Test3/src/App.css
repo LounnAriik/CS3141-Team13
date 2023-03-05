@@ -7,16 +7,18 @@
 }
 
 .topnav{
-    word-wrap: break-word ;
-    content: width=device-width, initial-scale=1;
-    background-color: #FFFB07;
     position: absolute;
-    width: 100%;
-    border-style: 1px;
+    width:100%;
+ 
 }
-
-.transfer {
-    position: absolute;
-    left:    0;
-    bottom:   0;
-  }
+.custom-select{
+    list-style-type: none;
+    display: inline;
+}
+.about{
+    list-style-type: none;
+    display: inline;
+    position: relative;
+    float:right;
+    margin-right:100px;
+}
