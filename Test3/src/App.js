@@ -302,39 +302,36 @@ function App() {
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
         
+       <header>
         <div className="transfer">
-	          <button onClick={() => {buildCourseByTransfer()}}>Transfer</button>
-        </div>
-        
-        <div class="topnav">
-          <a class="active" href="nothing"></a>
-          <ul> 
-            <li class="custom-select">
-             <select>
-              <option value="0">Select Year:</option>
-              <option value="1">Year 1</option>
-              <option value="2">Year 2</option>
-              <option value="3">Year 3</option>
-              <option value="4">Year 4</option>
-             </select>
+          <button onClick={() => {buildCourseByTransfer()}}>Transfer</button>
+        </div> 
+        <nav>
+          <ul class = "select">
+            <li>
+              <select>
+                <option value="0">Select Year:</option>
+                <option value="1">Year 1</option>
+                <option value="2">Year 2</option>
+                <option value="3">Year 3</option>
+                <option value="4">Year 4</option>
+              </select>
             </li>
-
-            <li class="custom-select" >
-             <select>
-              <option value="0">Select Semester:</option>
-              <option value="1">Fall Semester</option>
-              <option value="2">Spring Semester</option>
-              <option value="3">Summer Semester</option>
-             </select>
-            </li>
-            <li class="custom-select">
-              <div class = "about">About</div>
+            <li>
+              <select>
+                <option value="0">Select Semester:</option>
+                <option value="1">Fall Semester</option>
+                <option value="2">Spring Semester</option>
+                <option value="3">Summer Semester</option>
+              </select>
             </li>
           </ul>
-        </div>
+        </nav>
+        <a class ="about">About</a>
+       </header>
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
-            <div class="nav"
+            <div class="courseList"
               style={{
                 display: "flex",
                 flexDirection: "column",

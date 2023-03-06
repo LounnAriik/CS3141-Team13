@@ -2,23 +2,36 @@
     user-select: none;
 }
 
-.nav{
-    margin-top: 50px
+.courseList{
+    margin-top:75px;
 }
 
-.topnav{
+li, a, .transfer{
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+}
+nav{
+    padding-right: 60px;
+}
+header{
+    padding-top: 10px;
     position: absolute;
     width:100%;
- 
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.custom-select{
-    list-style-type: none;
-    display: inline;
+li{
+    list-style: none;
+    display:inline-block;
+    padding: 0 20px;
+    
 }
-.about{
-    list-style-type: none;
-    display: inline;
-    position: relative;
-    float:right;
-    margin-right:100px;
+
+.transfer{
+    padding-left: 70px;
+}
+a{
+    color:#D8DAD4;
+    padding-right: 70px;
 }
