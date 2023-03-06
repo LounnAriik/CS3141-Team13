@@ -325,6 +325,7 @@ function App() {
             </li>
           </ul>
         </nav>
+        <a class ="help" href="#">Help</a>
         <a class ="about" href="#">About</a>
        </header>
         {Object.entries(columns).map(([columnId, column], index) => {

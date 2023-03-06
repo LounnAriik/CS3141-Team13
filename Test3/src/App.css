@@ -13,7 +13,7 @@ li, a, .transfer{
     font-weight: bold;
 }
 nav{
-    padding-right: 120px;
+    padding-left: 300px;
 }
 header{
     padding-top: 10px;
@@ -35,7 +35,9 @@ li{
     cursor: pointer;
    
 }
-
+.help{
+    margin-left:300px;
+}
 a{
     color:#D8DAD4;
     padding-right: 70px;
@@ -61,6 +63,18 @@ a{
     transition: width .3s;
   }
   .transfer:hover::after{
+    width: 100%;
+    transition: width .3s;
+  }
+  .help::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #D8DAD4;
+    transition: width .3s;
+  }
+  .help:hover::after{
     width: 100%;
     transition: width .3s;
   }
