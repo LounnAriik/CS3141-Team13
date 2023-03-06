@@ -303,9 +303,7 @@ function App() {
       >
         
        <header>
-        <div className="transfer">
-          <button onClick={() => {buildCourseByTransfer()}}>Transfer</button>
-        </div> 
+        <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
         <nav>
           <ul class = "select">
             <li>
@@ -327,7 +325,7 @@ function App() {
             </li>
           </ul>
         </nav>
-        <a class ="about">About</a>
+        <a class ="about" href="#">About</a>
        </header>
         {Object.entries(columns).map(([columnId, column], index) => {
           return (

@@ -9,9 +9,11 @@
 li, a, .transfer{
     font-family: "Roboto", sans-serif;
     text-decoration: none;
+    font-size: 1.25em;
+    font-weight: bold;
 }
 nav{
-    padding-right: 60px;
+    padding-right: 120px;
 }
 header{
     padding-top: 10px;
@@ -30,8 +32,35 @@ li{
 
 .transfer{
     padding-left: 70px;
+    cursor: pointer;
+   
 }
+
 a{
     color:#D8DAD4;
     padding-right: 70px;
 }
+  .about::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #D8DAD4;
+    transition: width .3s;
+  }
+  .about:hover::after{
+    width: 100%;
+    transition: width .3s;
+  }
+  .transfer::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #D8DAD4;
+    transition: width .3s;
+  }
+  .transfer:hover::after{
+    width: 100%;
+    transition: width .3s;
+  }
