@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4";
 import './App.css';
+import Search from "./search";
+import data from "./response_1678212061808.json"
 
 const firstYearFallCourses = [
   { id: uuid(), content: "Intro to CS" },
@@ -295,19 +297,32 @@ function buildCourseByTransfer() {
 
 
 function App() {
+  const [query, setQuery] = useState("")
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
+    <div>
+    <input placeholder="Enter class Title" onChange={event => setQuery(event.target.value)} />
+  {
+    data.map((classes, index) => {
+      <div key={index}>
+        <p>{classes.title}</p>
+      </div>
+    })
+  }
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
+    
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
         
+        
        <header>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
+       
         <nav>
           <ul class = "select">
             <li>
-              <select>
+              <select>u
                 <option value="0">Select Year:</option>
                 <option value="1">Year 1</option>
                 <option value="2">Year 2</option>
@@ -325,6 +340,7 @@ function App() {
             </li>
           </ul>
         </nav>
+        
         <a class ="help" href="#">Help</a>
         <a class ="about" href="#">About</a>
        </header>
@@ -383,6 +399,8 @@ function App() {
                                     }}
                                   >
                                     {item.content}
+
+                                    
                                   </div>
                                 );
                               }}
@@ -400,7 +418,10 @@ function App() {
         })}
       </DragDropContext>      
     </div>
+    </div>
+    
   );
+  
 }
 
 export default App;
