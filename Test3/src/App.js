@@ -303,16 +303,10 @@ function App() {
     <div>
     <input placeholder="Enter class Title" onChange={event => setQuery(event.target.value)} />
   { data.filter(classes => {
-    if (query === ''){
+    if (classes.title.toLowerCase().includes(query.toLowerCase())) {
       return classes;
-    } else if (classes.title.toLowerCase().includes(query.toLowerCase())) {
+    } else if (classes.crse.includes(query) && classes.subject.includes(query)) {
       return classes;
-    } else if (classes.crse.includes(query)) {
-      return classes;
-    } else if (classes.subject.includes(query)) {
-    return classes;
-   } else if (classes.subject.toLowerCase().includes(query.toLowerCase()) && classes.crse.includes(query)) {
-    return classes.subject + classes.crse;
    }
   }).map((classes, index) => (
     <div className="box" key={index}>
