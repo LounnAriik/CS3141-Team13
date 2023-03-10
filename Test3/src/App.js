@@ -302,13 +302,22 @@ function App() {
   return (
     <div>
     <input placeholder="Enter class Title" onChange={event => setQuery(event.target.value)} />
-  {
-    data.map((classes, index) => {
-      <div key={index}>
-        <p>{classes.title}</p>
-      </div>
-    })
-  }
+  { data.filter(classes => {
+    if (query === ''){
+      return classes;
+    } else if (classes.title.toLowerCase().includes(query.toLowerCase())) {
+      return classes;
+    } else if (classes.crse.includes(query)) {
+      return classes;
+    } else if (classes.subject.includes(query)) {
+    return classes;
+   }
+  }).map((classes, index) => (
+    <div className="box" key={index}>
+      <p>{classes.title}</p>
+      <p>{classes.subject + " " + classes.crse}</p>
+    </div>
+  ))}
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
     
       <DragDropContext
