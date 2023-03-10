@@ -311,6 +311,8 @@ function App() {
       return classes;
     } else if (classes.subject.includes(query)) {
     return classes;
+   } else if (classes.subject.toLowerCase().includes(query.toLowerCase()) && classes.crse.includes(query)) {
+    return classes;
    }
   }).map((classes, index) => (
     <div className="box" key={index}>
