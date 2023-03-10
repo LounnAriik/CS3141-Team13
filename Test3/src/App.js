@@ -312,7 +312,7 @@ function App() {
     } else if (classes.subject.includes(query)) {
     return classes;
    } else if (classes.subject.toLowerCase().includes(query.toLowerCase()) && classes.crse.includes(query)) {
-    return classes;
+    return classes.subject + classes.crse;
    }
   }).map((classes, index) => (
     <div className="box" key={index}>
