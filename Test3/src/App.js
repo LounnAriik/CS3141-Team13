@@ -315,11 +315,15 @@ function App() {
     
    <div classname='list'>
     
-    <input placeholder="Enter class Title" onChange={event => setQuery(event.target.value)} />
+    <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
   { data.filter(classes => {
+    if (query === ''){
+      return null;
+    }
     if (classes.title.toLowerCase().includes(query.toLowerCase())) {
-      return  classes ;
-    } else if (classes.crse.includes(query) && classes.subject.includes(query)) {
+      return classes ;
+    }
+    if (classes.crse.includes(query) && classes.subject.includes(query)) {
       return classes;  
    }
    
