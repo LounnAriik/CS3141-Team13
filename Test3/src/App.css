@@ -94,6 +94,7 @@ a{
   align-items: center;
 }
 .box {
+  white-space: nowrap;
   text-align: left;
   border: black ridge 1px;
   border-radius: 10px;
@@ -101,4 +102,9 @@ a{
   width: 20rem;
   padding-left: 10px;
   background-color: #D8DAD4;
+  overflow: hidden;
+}
+.box:hover {
+  background-color: rgb(18, 92, 170);
+  opacity: 40%;
 }

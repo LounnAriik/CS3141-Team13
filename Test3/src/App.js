@@ -5,6 +5,7 @@ import './App.css';
 import Search from "./search";
 import data from "./response_1678212061808.json"
 
+
 const firstYearFallCourses = [
   { id: uuid(), content: "Intro to CS" },
   { id: uuid(), content: "Calculus" },
@@ -295,25 +296,43 @@ function buildCourseByTransfer() {
   Request.send();
 }
 
+function searchList() {
+  return (
+    <Scroll>
+      <SearchList filteredClasses={data.filter} />
+    </Scroll>
+  );
+}
+
 
 function App() {
   const [query, setQuery] = useState("")
   const [columns, setColumns] = useState(columnsFromBackend);
+  
+
   return (
-    <div>
+   <div>
+    
+   <div classname='list'>
+    
     <input placeholder="Enter class Title" onChange={event => setQuery(event.target.value)} />
   { data.filter(classes => {
     if (classes.title.toLowerCase().includes(query.toLowerCase())) {
-      return classes;
+      return  classes ;
     } else if (classes.crse.includes(query) && classes.subject.includes(query)) {
-      return classes;
+      return classes;  
    }
+   
   }).map((classes, index) => (
     <div className="box" key={index}>
       <p>{classes.title}</p>
       <p>{classes.subject + " " + classes.crse}</p>
     </div>
   ))}
+  
+  </div>
+
+  
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
     
       <DragDropContext
@@ -323,7 +342,7 @@ function App() {
         
        <header>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
-       
+     
         <nav>
           <ul class = "select">
             <li>
