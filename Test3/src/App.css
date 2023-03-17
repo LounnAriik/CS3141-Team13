@@ -117,4 +117,9 @@ select{
   background-color: #283246;
   height: 30px;
   width: 150px;
+  color:white;
+}
+
+select:hover::after{
+  
 }
