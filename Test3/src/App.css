@@ -15,6 +15,7 @@ li, a, .transfer{
 nav{
     padding-left: 100px;
 }
+
 header{
     padding-top: 10px;
     position: absolute;
@@ -110,4 +111,10 @@ a{
 .box:hover {
   background-color: rgb(18, 92, 170);
   opacity: 40%;
+}
+
+select{
+  background-color: #283246;
+  height: 30px;
+  width: 150px;
 }
