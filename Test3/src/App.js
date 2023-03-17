@@ -72,19 +72,19 @@ const fourthYearSpringCourses = [
 ];
 
 
-var hardCodedRegistrationClass = "Third Year";
-var hardCodedSemester = "Spring";
+var hardCodedRegistrationClass = "3";
+var hardCodedSemester = "1";
 
 const columnsFromBackend = {
   [0]: {
     name: "Avaliable Courses",
     items: referenceAvailableCourses(hardCodedRegistrationClass, hardCodedSemester)
   },
-  [uuid()]: {
+  [1]: {
     name: "Course Workspace",
     items: referenceWorkspaceCourses(hardCodedRegistrationClass, hardCodedSemester)
   },
-  [uuid()]: {
+  [2]: {
     name: "Taken Courses",
     items: referenceTakenCourses(hardCodedRegistrationClass, hardCodedSemester)
   }
@@ -134,28 +134,28 @@ function clickClass(){
 
 function referenceAvailableCourses(registrationClass, semester){
 
-  if (registrationClass == "First Year" && semester == "Fall") {
+  if (registrationClass == "1" && semester == "1") {
       return firstYearFallCourses;
   }
-  if (registrationClass == "First Year" && semester == "Spring") {
+  if (registrationClass == "1" && semester == "2") {
     return firstYearSpringCourses;
   }
-  if (registrationClass == "Second Year" && semester == "Fall") {
+  if (registrationClass == "2" && semester == "1") {
     return secondYearFallCourses;
   }
-  if (registrationClass == "Second Year" && semester == "Spring") {
+  if (registrationClass == "2" && semester == "2") {
     return secondYearSpringCourses;
   }
-  if (registrationClass == "Third Year" && semester == "Fall") {
+  if (registrationClass == "3" && semester == "1") {
     return thirdYearFallCourses;
   }
-  if (registrationClass == "Third Year" && semester == "Spring") {
+  if (registrationClass == "3" && semester == "2") {
     return thirdYearSpringCourses;
   }
-  if (registrationClass == "Fourth Year" && semester == "Fall") {
+  if (registrationClass == "4" && semester == "1") {
     return fourthYearFallCourses;
   }
-  if (registrationClass == "Fourth Year" && semester == "Spring") {
+  if (registrationClass == "4" && semester == "2") {
     return fourthYearSpringCourses;
   }  
 
@@ -163,28 +163,28 @@ function referenceAvailableCourses(registrationClass, semester){
 
 function referenceWorkspaceCourses(registrationClass, semester){
 
-  if (registrationClass == "First Year" && semester == "Fall") {
+  if (registrationClass == "1" && semester == "1") {
       return [];
   }
-  if (registrationClass == "First Year" && semester == "Spring") {
+  if (registrationClass == "1" && semester == "2") {
     return [];
   }
-  if (registrationClass == "Second Year" && semester == "Fall") {
+  if (registrationClass == "2" && semester == "1") {
     return [];
   }
-  if (registrationClass == "Second Year" && semester == "Spring") {
+  if (registrationClass == "2" && semester == "2") {
     return [];
   }
-  if (registrationClass == "Third Year" && semester == "Fall") {
+  if (registrationClass == "3" && semester == "1") {
     return [];
   }
-  if (registrationClass == "Third Year" && semester == "Spring") {
+  if (registrationClass == "3" && semester == "2") {
     return [];
   }
-  if (registrationClass == "Fourth Year" && semester == "Fall") {
+  if (registrationClass == "4" && semester == "1") {
     return [];
   }
-  if (registrationClass == "Fourth Year" && semester == "Spring") {
+  if (registrationClass == "4" && semester == "2") {
     return [];
   }  
 
@@ -193,28 +193,28 @@ function referenceWorkspaceCourses(registrationClass, semester){
 
 function referenceTakenCourses(registrationClass, semester){
 
-  if (registrationClass == "First Year" && semester == "Fall") {
+  if (registrationClass == "1" && semester == "1") {
       return [];
   }
-  if (registrationClass == "First Year" && semester == "Spring") {
+  if (registrationClass == "1" && semester == "2") {
     return firstYearFallCourses;
   }
-  if (registrationClass == "Second Year" && semester == "Fall") {
+  if (registrationClass == "2" && semester == "1") {
     return firstYearSpringCourses;
   }
-  if (registrationClass == "Second Year" && semester == "Spring") {
+  if (registrationClass == "2" && semester == "2") {
     return secondYearFallCourses;
   }
-  if (registrationClass == "Third Year" && semester == "Fall") {
+  if (registrationClass == "3" && semester == "1") {
     return secondYearSpringCourses;
   }
-  if (registrationClass == "Third Year" && semester == "Spring") {
+  if (registrationClass == "3" && semester == "2") {
     return thirdYearFallCourses;
   }
-  if (registrationClass == "Fourth Year" && semester == "Fall") {
+  if (registrationClass == "4" && semester == "1") {
     return thirdYearSpringCourses;
   }
-  if (registrationClass == "Fourth Year" && semester == "Spring") {
+  if (registrationClass == "4" && semester == "2") {
     return fourthYearFallCourses;
   }  
 
@@ -308,28 +308,29 @@ function searchList() {
 }
 
 
-function harvestSelectedYear(){
-
-  var yearSelected = 1;
-  if (document.getElementById("YearSelect").value != null) {
-    yearSelected = document.getElementById("YearSelect").value;
-    return yearSelected;
-  }
-  return yearSelected;
-
-}
-
-function harvestSelectedSemester(){
+function updateCourseColumns(){
 
   var semesterSelected = 1;
+  var yearSelected = 1;
+
+  if (document.getElementById("YearSelect").value != null) {
+    yearSelected = document.getElementById("YearSelect").value;
+  }
+
   if (document.getElementById("SemesterSelect").value != null) {
     semesterSelected = document.getElementById("SemesterSelect").value;
-    return semesterSelected;
   }
-  return semesterSelected;
+  
+  columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
+  columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
+  columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
+
+  console.log(columnsFromBackend[0]);
+  console.log(columnsFromBackend[1]);
+  console.log(columnsFromBackend[2]);
+
   
 }
-
 
 
 
@@ -379,7 +380,7 @@ function App() {
         <nav>
           <ul class = "select">
             <li>
-              <select id = "YearSelect" onClick={() => {console.log(harvestSelectedYear())}}>
+              <select id = "YearSelect" onClick={() => {updateCourseColumns()}}>
                 <option value="1">Select Year:</option>
                 <option value="1">Year 1</option>
                 <option value="2">Year 2</option>
@@ -388,7 +389,7 @@ function App() {
               </select>
             </li>
             <li>
-              <select id = "SemesterSelect" onClick={() => {console.log(harvestSelectedSemester())}}>
+              <select id = "SemesterSelect" onClick={() => {updateCourseColumns()}}>
                 <option value="1">Select Semester:</option>
                 <option value="1">Fall Semester</option>
                 <option value="2">Spring Semester</option>
