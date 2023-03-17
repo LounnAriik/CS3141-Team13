@@ -381,7 +381,7 @@ function App() {
           <ul class = "select">
             <li>
               <select id = "YearSelect" onClick={() => {updateCourseColumns()}}>
-                <option value="1">Select Year:</option>
+                <option value="" disable selected hidden>Select Year:</option>
                 <option value="1">Year 1</option>
                 <option value="2">Year 2</option>
                 <option value="3">Year 3</option>
@@ -390,7 +390,7 @@ function App() {
             </li>
             <li>
               <select id = "SemesterSelect" onClick={() => {updateCourseColumns()}}>
-                <option value="1">Select Semester:</option>
+                <option value="" disable selected hidden>Select Semester:</option>
                 <option value="1">Fall Semester</option>
                 <option value="2">Spring Semester</option>
                 <option value="3">Summer Semester</option>
