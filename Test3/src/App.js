@@ -307,14 +307,30 @@ function searchList() {
   );
 }
 
-function updateAvailableCourses(){
 
-  var yearSelected = document.getElementById("YearSelect").value;
-  var semesterSelected = document.getElementById("SemesterSelect").value;
+function harvestSelectedYear(){
 
-  console.log("year selected" + yearSelected);
-  console.log("semester selected" + semesterSelected);
+  var yearSelected = 1;
+  if (document.getElementById("YearSelect").value != null) {
+    yearSelected = document.getElementById("YearSelect").value;
+    return yearSelected;
+  }
+  return yearSelected;
+
 }
+
+function harvestSelectedSemester(){
+
+  var semesterSelected = 1;
+  if (document.getElementById("SemesterSelect").value != null) {
+    semesterSelected = document.getElementById("SemesterSelect").value;
+    return semesterSelected;
+  }
+  return semesterSelected;
+  
+}
+
+
 
 
 function App() {
@@ -363,7 +379,7 @@ function App() {
         <nav>
           <ul class = "select">
             <li>
-              <select id = "YearSelect" onClick={() => {updateAvailableCourses()}}>
+              <select id = "YearSelect" onClick={() => {console.log(harvestSelectedYear())}}>
                 <option value="1">Select Year:</option>
                 <option value="1">Year 1</option>
                 <option value="2">Year 2</option>
@@ -372,7 +388,7 @@ function App() {
               </select>
             </li>
             <li>
-              <select id = "SemesterSelect" onClick={() => {updateAvailableCourses()}}>
+              <select id = "SemesterSelect" onClick={() => {console.log(harvestSelectedSemester())}}>
                 <option value="1">Select Semester:</option>
                 <option value="1">Fall Semester</option>
                 <option value="2">Spring Semester</option>
