@@ -322,28 +322,7 @@ function App() {
   return (
    <div>
     
-   <div classname='list'>
-    
-    <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
-  { data.filter(classes => {
-    if (query === ''){
-      return null;
-    }
-    if (classes.title.toLowerCase().includes(query.toLowerCase())) {
-      return classes ;
-    }
-    if (classes.crse.includes(query) && classes.subject.includes(query)) {
-      return classes;  
-   }
-   
-  }).map((classes, index) => (
-    <div className="box" key={index}>
-      <p>{classes.title}</p>
-      <p>{classes.subject + " " + classes.crse}</p>
-    </div>
-  ))}
-  
-  </div>
+
 
   
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
@@ -354,8 +333,30 @@ function App() {
         
         
        <header>
+        <div class='list'>
+            
+            <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
+          { data.filter(classes => {
+            if (query === ''){
+              return null;
+            }
+            if (classes.title.toLowerCase().includes(query.toLowerCase())) {
+              return classes ;
+            }
+            if (classes.crse.includes(query) && classes.subject.includes(query)) {
+              return classes;  
+          }
+          
+          }).map((classes, index) => (
+            <div className="box" key={index}>
+              <p>{classes.title}</p>
+              <p>{classes.subject + " " + classes.crse}</p>
+            </div>
+          ))}
+          
+      </div>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
-     
+
         <nav>
           <ul class = "select">
             <li>

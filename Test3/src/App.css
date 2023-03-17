@@ -13,7 +13,7 @@ li, a, .transfer{
     font-weight: bold;
 }
 nav{
-    padding-left: 300px;
+    padding-left: 100px;
 }
 header{
     padding-top: 10px;
@@ -92,6 +92,9 @@ a{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.list{
+  margin-left: 50px;
 }
 .box {
   white-space: nowrap;
