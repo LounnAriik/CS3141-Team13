@@ -304,6 +304,15 @@ function searchList() {
   );
 }
 
+function updateAvailableCourses(){
+
+  var yearSelected = document.getElementById("YearSelect").value;
+  var semesterSelected = document.getElementById("SemesterSelect").value;
+
+  console.log("year selected" + yearSelected);
+  console.log("semester selected" + semesterSelected);
+}
+
 
 function App() {
   const [query, setQuery] = useState("")
@@ -350,8 +359,8 @@ function App() {
         <nav>
           <ul class = "select">
             <li>
-              <select>u
-                <option value="0">Select Year:</option>
+              <select id = "YearSelect" onClick={() => {updateAvailableCourses()}}>
+                <option value="1">Select Year:</option>
                 <option value="1">Year 1</option>
                 <option value="2">Year 2</option>
                 <option value="3">Year 3</option>
@@ -359,8 +368,8 @@ function App() {
               </select>
             </li>
             <li>
-              <select>
-                <option value="0">Select Semester:</option>
+              <select id = "SemesterSelect" onClick={() => {updateAvailableCourses()}}>
+                <option value="1">Select Semester:</option>
                 <option value="1">Fall Semester</option>
                 <option value="2">Spring Semester</option>
                 <option value="3">Summer Semester</option>
