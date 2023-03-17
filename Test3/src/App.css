@@ -112,3 +112,9 @@ a{
   background-color: rgb(18, 92, 170);
   opacity: 40%;
 }
+
+select{
+  background-color: #283246;
+  height: 30px;
+  width: 150px;
+}
