@@ -384,7 +384,7 @@ function App() {
               <option value="">Year 4</option>
             </div>
         <a class = "semesterselect" onClick={() => {updateCourseColumns()}}>Select Semester</a>
-        <div class="yearselect-content">
+        <div class="semesterselect-content">
               <option value="">Fall Semester</option>
               <option value="">Spring Semester</option>
               <option value="">Summer Semester</option>
