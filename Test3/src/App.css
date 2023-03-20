@@ -113,15 +113,6 @@ a{
   opacity: 40%;
 }
 
-select{
-  background-color: #283246;
-  height: 30px;
-  width: 150px;
-  color:white;
-  border: none;
-  
-}
-
 .semesterselect{
   display: inline-block;
 }

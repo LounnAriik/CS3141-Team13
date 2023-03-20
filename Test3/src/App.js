@@ -374,7 +374,7 @@ function App() {
             </div>
           ))}
           
-      </div>
+    </div>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
         <a class = "yearselect" onClick={() => {updateCourseColumns()}}>Select Year</a>
             <div class="yearselect-content">
