@@ -149,3 +149,31 @@ select{
 .semesterselect :hover .semesterselect-content{
   display: block;
 }
+
+.yearselect{
+  display: inline-block;
+}
+
+.yearselect-content{
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 100px;
+  z-index: 1;
+}
+
+.yearselect-content a{
+  color: black;
+  padding: 10 px 10 px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.yearselect-content a:hover{
+  background-color: white;
+}
+
+.yearselect :hover .yearselect-content{
+  display: block;
+}
