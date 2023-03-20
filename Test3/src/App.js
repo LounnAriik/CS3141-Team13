@@ -271,11 +271,10 @@ function buildCourseByTransfer() {
     && transferArray[i].fromCRSE == CRSE) {
       // Checks if chosen item is an actual class
       if (transferArray[i].title == ("Unassigned Transfer" || "No Course Equivalent")) {
-        // Need to figure out how to create item and place into column
-        // itemsFromBackend.push({ id: uuid(), content:"" + transferArray[i].title + ""});
         text = "No Course Equivalent or Unassigned Transfer";
         break;
       } else {
+        columnsFromBackend[2].items.push({ id: uuid(), content:"" + transferArray[i].title + ""});
         text = "Course Added";
         break;
       }
@@ -341,40 +340,37 @@ function App() {
 
   return (
    <div>
-    
+    <div>
+        
+        <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
+      { data.filter(classes => {
+        if (classes.subject != 'CS'){
+          return null;
+        }
+        if (query === ''){
+          return null;
+        }
+       //if (classes.title.toLowerCase().includes(query.toLowerCase())) {
+        //  return classes ;
+        //}
+        if (classes.crse.includes(query)) {
+          return classes;  
+      }
+      
+      }).map((classes, index) => (
+        <div className="box" key={index}>
+          <p>{classes.title}</p>
+          <p>{classes.subject + " " + classes.crse}</p>
+        </div>
+      ))} 
+  </div>
 
-
-  
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
     
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
-        
-        
        <header>
-        <div class='list'>
-            
-            <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
-          { data.filter(classes => {
-            if (query === ''){
-              return null;
-            }
-            if (classes.title.toLowerCase().includes(query.toLowerCase())) {
-              return classes ;
-            }
-            if (classes.crse.includes(query) && classes.subject.includes(query)) {
-              return classes;  
-          }
-          
-          }).map((classes, index) => (
-            <div className="box" key={index}>
-              <p>{classes.title}</p>
-              <p>{classes.subject + " " + classes.crse}</p>
-            </div>
-          ))}
-          
-    </div>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
         <li class = "yearselect">
             <a href="javascript:void(0)" class="ysbtn">Select Year</a>
@@ -395,6 +391,9 @@ function App() {
         <a class ="help" href="#">Help</a>
         <a class ="about" href="#">About</a>
        </header>
+
+       
+
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div class="courseList"
@@ -423,6 +422,7 @@ function App() {
                           width: 250,
                         }}
                       >
+
                         {column.items.map((item, index) => {
                           return (
                             <Draggable
@@ -450,8 +450,6 @@ function App() {
                                     }}
                                   >
                                     {item.content}
-
-                                    
                                   </div>
                                 );
                               }}
