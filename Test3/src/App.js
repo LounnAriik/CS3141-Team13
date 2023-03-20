@@ -387,13 +387,11 @@ function App() {
                 <option value="4">Year 4</option>
               </select>
             </li>
-            <li>
-              <select id = "SemesterSelect" onClick={() => {console.log(harvestSelectedSemester())}}>
-                <option value="" disable selected hidden>Select Semester:</option>
-                <option value="1">Fall Semester</option>
-                <option value="2">Spring Semester</option>
-                <option value="3">Summer Semester</option>
-              </select>
+            <li class="dropdown">
+              <button class = "dropbtn">Semester Select</button>
+              <div class="dropdown-content" id = "SemesterSelect" onClick={() => {console.log(harvestSelectedSemester())}}>
+                <div value="1">Year 1</div>
+              </div>
             </li>
           </ul>
         </nav>

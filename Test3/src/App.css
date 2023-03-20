@@ -118,8 +118,6 @@ select{
   height: 30px;
   width: 150px;
   color:white;
+  border: none;
 }
 
-select:hover::after{
-  
-}
