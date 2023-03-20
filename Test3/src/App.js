@@ -272,11 +272,10 @@ function buildCourseByTransfer() {
     && transferArray[i].fromCRSE == CRSE) {
       // Checks if chosen item is an actual class
       if (transferArray[i].title == ("Unassigned Transfer" || "No Course Equivalent")) {
-        // Need to figure out how to create item and place into column
-        // itemsFromBackend.push({ id: uuid(), content:"" + transferArray[i].title + ""});
         text = "No Course Equivalent or Unassigned Transfer";
         break;
       } else {
+        columnsFromBackend[2].items.push({ id: uuid(), content:"" + transferArray[i].title + ""});
         text = "Course Added";
         break;
       }
@@ -349,57 +348,62 @@ function App() {
 
   return (
    <div>
-    
+    <div>
+        
+        <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
+      { data.filter(classes => {
+        if (classes.subject != 'CS'){
+          return null;
+        }
+        if (query === ''){
+          return null;
+        }
+       //if (classes.title.toLowerCase().includes(query.toLowerCase())) {
+        //  return classes ;
+        //}
+        if (classes.crse.includes(query)) {
+          return classes;  
+      }
+      
+      }).map((classes, index) => (
+        <div className="box" key={index}>
+          <p>{classes.title}</p>
+          <p>{classes.subject + " " + classes.crse}</p>
+        </div>
+      ))} 
+  </div>
 
-
-  
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
     
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
-        
-        
        <header>
-        <div class='list'>
-            
-            <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
-          { data.filter(classes => {
-            if (query === ''){
-              return null;
-            }
-            if (classes.title.toLowerCase().includes(query.toLowerCase())) {
-              return classes ;
-            }
-            if (classes.crse.includes(query) && classes.subject.includes(query)) {
-              return classes;  
-          }
-          
-          }).map((classes, index) => (
-            <div className="box" key={index}>
-              <p>{classes.title}</p>
-              <p>{classes.subject + " " + classes.crse}</p>
-            </div>
-          ))}
-          
-      </div>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
-        <a class = "yearselect" onClick={() => {updateCourseColumns()}}>Select Year</a>
+        <li class = "yearselect">
+            <a href="javascript:void(0)" class="ysbtn">Select Year</a>
             <div class="yearselect-content">
-              <option value="">Year 1</option>
-              <option value="">Year 2</option>
-              <option value="">Year 3</option>
-              <option value="">Year 4</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Year 1</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Year 2</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Year 3</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Year 4</option>
             </div>
-        <a class = "semesterselect" onClick={() => {updateCourseColumns()}}>Select Semester</a>
-        <div class="semesterselect-content">
-              <option value="">Fall Semester</option>
-              <option value="">Spring Semester</option>
-              <option value="">Summer Semester</option>
+        </li>
+            
+        <li class = "semesterselect"> 
+            <a href="javascript:vois(0)" class="ssbtn"> Select Semester</a>
+            <div class="semesterselect-content">
+              <option value="" onClick={() => {updateCourseColumns()}}>Fall Semester</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
             </div>
+        </li>
         <a class ="help" href="#">Help</a>
         <a class ="about" href="#">About</a>
        </header>
+
+       
+
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
             <div class="courseList"
@@ -428,6 +432,7 @@ function App() {
                           width: 250,
                         }}
                       >
+
                         {column.items.map((item, index) => {
                           return (
                             <Draggable
@@ -455,8 +460,6 @@ function App() {
                                     }}
                                   >
                                     {item.content}
-
-                                    
                                   </div>
                                 );
                               }}
