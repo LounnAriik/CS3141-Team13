@@ -37,7 +37,7 @@ li{
    
 }
 .help{
-    margin-left:300px;
+    margin-left:200px;
 }
 a{
     color:#D8DAD4;
@@ -113,15 +113,43 @@ a{
   opacity: 40%;
 }
 
-select{
-  background-color: #283246;
-  height: 30px;
-  width: 150px;
-  color:white;
-  border: none;
-  
+.yearselect{
+  padding-right: 0px;
+  padding-left: 70px;
+  display: inline-block;
 }
 
-select:hover::after{
+.yearselect::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #D8DAD4;
+}
+
+.yearselect-content{
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 100px;
+}
+
+.yearselect:hover .yearselect-content{
+  display: block;
+}
+
+.semesterselect{
+  padding-right: 50px;
+  padding-left: 10px;
+}
+.semesterselect::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #D8DAD4;
+}
+
+.semesterselect:hover::after{
 
 }

@@ -376,29 +376,19 @@ function App() {
           
       </div>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
-
-        <nav>
-          <ul class = "select">
-            <li>
-              <select id = "YearSelect" onClick={() => {updateCourseColumns()}}>
-                <option value="" disable selected hidden>Select Year:</option>
-                <option value="1">Year 1</option>
-                <option value="2">Year 2</option>
-                <option value="3">Year 3</option>
-                <option value="4">Year 4</option>
-              </select>
-            </li>
-            <li>
-              <select id = "SemesterSelect" onClick={() => {updateCourseColumns()}}>
-                <option value="" disable selected hidden>Select Semester:</option>
-                <option value="1">Fall Semester</option>
-                <option value="2">Spring Semester</option>
-                <option value="3">Summer Semester</option>
-              </select>
-            </li>
-          </ul>
-        </nav>
-        
+        <a class = "yearselect" onClick={() => {updateCourseColumns()}}>Select Year</a>
+            <div class="yearselect-content">
+              <option value="">Year 1</option>
+              <option value="">Year 2</option>
+              <option value="">Year 3</option>
+              <option value="">Year 4</option>
+            </div>
+        <a class = "semesterselect" onClick={() => {updateCourseColumns()}}>Select Semester</a>
+        <div class="yearselect-content">
+              <option value="">Fall Semester</option>
+              <option value="">Spring Semester</option>
+              <option value="">Summer Semester</option>
+            </div>
         <a class ="help" href="#">Help</a>
         <a class ="about" href="#">About</a>
        </header>
