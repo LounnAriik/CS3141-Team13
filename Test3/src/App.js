@@ -271,11 +271,10 @@ function buildCourseByTransfer() {
     && transferArray[i].fromCRSE == CRSE) {
       // Checks if chosen item is an actual class
       if (transferArray[i].title == ("Unassigned Transfer" || "No Course Equivalent")) {
-        // Need to figure out how to create item and place into column
-        // itemsFromBackend.push({ id: uuid(), content:"" + transferArray[i].title + ""});
         text = "No Course Equivalent or Unassigned Transfer";
         break;
       } else {
+        columnsFromBackend[2].items.push({ id: uuid(), content:"" + transferArray[i].title + ""});
         text = "Course Added";
         break;
       }
