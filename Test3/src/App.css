@@ -137,7 +137,7 @@ a{
   background-color: white;
 }
 
-.semesterselect :hover .semesterselect-content{
+.semesterselect:hover .semesterselect-content{
   display: block;
 }
 

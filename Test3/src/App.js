@@ -382,12 +382,14 @@ function App() {
             </div>
         </li>
             
-        <a class = "semesterselect" onClick={() => {updateCourseColumns()}}>Select Semester</a>
-        <div class="semesterselect-content">
-              <option value="">Fall Semester</option>
-              <option value="">Spring Semester</option>
-              <option value="">Summer Semester</option>
+        <li class = "semesterselect"> 
+            <a href="javascript:vois(0)" class="ssbtn"> Select Semester</a>
+            <div class="semesterselect-content">
+              <option value="" onClick={() => {updateCourseColumns()}}>Fall Semester</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
             </div>
+        </li>
         <a class ="help" href="#">Help</a>
         <a class ="about" href="#">About</a>
        </header>
