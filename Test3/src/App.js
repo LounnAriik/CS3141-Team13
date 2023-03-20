@@ -5,6 +5,7 @@ import './App.css';
 import Search from "./search";
 import data from "./response_1678212061808.json"
 
+
 // Array for buildCourseByTransfer
 let transferArray = new Array();
 
@@ -307,7 +308,7 @@ function searchList() {
   );
 }
 
-
+// Function to update the arrays of courses that make up the columns
 function updateCourseColumns(){
 
   var semesterSelected = 1;
@@ -325,11 +326,18 @@ function updateCourseColumns(){
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  console.log(columnsFromBackend[0]);
-  console.log(columnsFromBackend[1]);
-  console.log(columnsFromBackend[2]);
+  // console.log(columnsFromBackend[0]);
+  // console.log(columnsFromBackend[1]);
+  // console.log(columnsFromBackend[2]);
 
-  
+  var AJAXobject = new XMLHttpRequest();
+  AJAXobject.open("GET", "response_1678212061808.json", true);
+  AJAXobject.send();
+
+  var XMLDocument = AJAXobject.responseText;
+
+  // console.log(XMLDocument);
+
 }
 
 
