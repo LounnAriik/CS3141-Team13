@@ -372,6 +372,28 @@ function App() {
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
        <header>
+        <div class='list'>
+            
+            <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
+          { data.filter(classes => {
+            if (query === ''){
+              return null;
+            }
+            if (classes.title.toLowerCase().includes(query.toLowerCase())) {
+              return classes ;
+            }
+            if (classes.crse.includes(query) && classes.subject.includes(query)) {
+              return classes;  
+          }
+          
+          }).map((classes, index) => (
+            <div className="box" key={index}>
+              <p>{classes.title}</p>
+              <p>{classes.subject + " " + classes.crse}</p>
+            </div>
+          ))}
+          
+    </div>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
         <a class = "yearselect" onClick={() => {updateCourseColumns()}}>Select Year</a>
             <div class="yearselect-content">
@@ -381,7 +403,7 @@ function App() {
               <option value="">Year 4</option>
             </div>
         <a class = "semesterselect" onClick={() => {updateCourseColumns()}}>Select Semester</a>
-        <div class="yearselect-content">
+        <div class="semesterselect-content">
               <option value="">Fall Semester</option>
               <option value="">Spring Semester</option>
               <option value="">Summer Semester</option>
