@@ -5,6 +5,7 @@ import './App.css';
 import Search from "./search";
 import data from "./response_1678212061808.json"
 
+
 // Array for buildCourseByTransfer
 let transferArray = new Array();
 
@@ -306,7 +307,7 @@ function searchList() {
   );
 }
 
-
+// Function to update the arrays of courses that make up the columns
 function updateCourseColumns(){
 
   var semesterSelected = 1;
@@ -324,11 +325,18 @@ function updateCourseColumns(){
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  console.log(columnsFromBackend[0]);
-  console.log(columnsFromBackend[1]);
-  console.log(columnsFromBackend[2]);
+  // console.log(columnsFromBackend[0]);
+  // console.log(columnsFromBackend[1]);
+  // console.log(columnsFromBackend[2]);
 
-  
+  var AJAXobject = new XMLHttpRequest();
+  AJAXobject.open("GET", "response_1678212061808.json", true);
+  AJAXobject.send();
+
+  var XMLDocument = AJAXobject.responseText;
+
+  // console.log(XMLDocument);
+
 }
 
 
@@ -341,21 +349,22 @@ function App() {
   return (
    <div>
     <div>
-        
-        <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
+        <input placeholder="Enter CS class title or number" onChange={event => setQuery(event.target.value)} />
       { data.filter(classes => {
-        if (classes.subject != 'CS'){
-          return null;
-        }
-        if (query === ''){
-          return null;
-        }
-       //if (classes.title.toLowerCase().includes(query.toLowerCase())) {
-        //  return classes ;
-        //}
-        if (classes.crse.includes(query)) {
-          return classes;  
+      if (query === ''){
+        return null;
       }
+      if (classes.subject != 'CS'){
+        return null;
+      }
+        if (classes.subject === 'CS'){
+          if (classes.title.toLowerCase().includes(query.toLowerCase()) || classes.crse.toString().includes(query.toString())) {
+            return classes.title;
+            }
+        } else {
+          return null;
+        }
+        
       
       }).map((classes, index) => (
         <div className="box" key={index}>
