@@ -125,16 +125,13 @@ a{
   z-index: 1;
 }
 
-.semesterselect-content a{
+.semesterselect-content option{
   color: black;
   padding: 10 px 10 px;
   text-decoration: none;
   display: block;
   text-align: left;
-}
-
-.semesterselect-content a:hover{
-  background-color: #D8DAD4;
+  user-select: none;
 }
 
 .semesterselect:hover .semesterselect-content{
@@ -143,27 +140,34 @@ a{
 
 .semesterselect-content option:hover {
   background-color: gray;
+  user-select: none;
+}
+
+.semesterselect-content:checked{
+  
 }
 
 .yearselect-content{
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: #D8DAD4;
   min-width: 100px;
   z-index: 1;
 }
 
-.yearselect-content a{
+.yearselect-content option{
   color: black;
   text-decoration: none;
   display: block;
   text-align: left;
-}
-
-.yearselect-content a:hover{
-  background-color: white;
+  user-select: none;
 }
 
 .yearselect:hover .yearselect-content{
   display: block;
+}
+
+.yearselect-content option:hover {
+  background-color: gray;
+  user-select: none;
 }

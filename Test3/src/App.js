@@ -389,9 +389,9 @@ function App() {
         <li class = "semesterselect"> 
             <a href="javascript:void(0)" class="ssbtn"> Select Semester</a>
             <div class="semesterselect-content">
-              <div id="1" data-value="1" onClick={() => {console.log(data-value)}}>Fall Semester</div>
-              <option value="2" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
-              <option value="3" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Fall Semester</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
+              <option value="" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
             </div>
         </li>
         <a class ="help" href="#">Help</a>
