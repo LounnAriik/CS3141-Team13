@@ -120,7 +120,7 @@ a{
 .semesterselect-content{
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: #D8DAD4;
   min-width: 100px;
   z-index: 1;
 }
@@ -134,11 +134,15 @@ a{
 }
 
 .semesterselect-content a:hover{
-  background-color: white;
+  background-color: #D8DAD4;
 }
 
 .semesterselect:hover .semesterselect-content{
   display: block;
+}
+
+.semesterselect-content option:hover {
+  background-color: gray;
 }
 
 .yearselect-content{
