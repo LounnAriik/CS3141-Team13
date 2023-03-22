@@ -3,7 +3,8 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import uuid from "uuid/v4";
 import './App.css';
 import Search from "./search";
-import data from "./response_1678212061808.json"
+import data from "./response_1678212061808.json";
+import './XMLCourses.xml';
 
 
 // Array for buildCourseByTransfer
@@ -313,29 +314,23 @@ function updateCourseColumns(){
   var semesterSelected = 1;
   var yearSelected = 1;
 
-  if (document.getElementById("YearSelect").value != null) {
-    yearSelected = document.getElementById("YearSelect").value;
+  if (document.getElementById("ysbtn").value != null) {
+    yearSelected = document.getElementById("ysbtn").value;
   }
 
-  if (document.getElementById("SemesterSelect").value != null) {
-    semesterSelected = document.getElementById("SemesterSelect").value;
+  if (document.getElementById("test").value != null) {
+    semesterSelected = document.getElementById("test").value;
   }
   
   columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  // console.log(columnsFromBackend[0]);
-  // console.log(columnsFromBackend[1]);
-  // console.log(columnsFromBackend[2]);
+  console.log(columnsFromBackend[0]);
+  console.log(columnsFromBackend[1]);
+  console.log(columnsFromBackend[2]);
 
-  var AJAXobject = new XMLHttpRequest();
-  AJAXobject.open("GET", "response_1678212061808.json", true);
-  AJAXobject.send();
 
-  var XMLDocument = AJAXobject.responseText;
-
-  // console.log(XMLDocument);
 
 }
 
@@ -384,19 +379,19 @@ function App() {
         <li class = "yearselect">
             <a href="javascript:void(0)" class="ysbtn">Select Year</a>
             <div class="yearselect-content">
-              <option value="" onClick={() => {updateCourseColumns()}}>Year 1</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Year 2</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Year 3</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Year 4</option>
+              <option value="1" onClick={() => {updateCourseColumns()}}>Year 1</option>
+              <option value="2" onClick={() => {updateCourseColumns()}}>Year 2</option>
+              <option value="3" onClick={() => {updateCourseColumns()}}>Year 3</option>
+              <option value="4" onClick={() => {updateCourseColumns()}}>Year 4</option>
             </div>
         </li>
             
         <li class = "semesterselect"> 
-            <a href="javascript:vois(0)" class="ssbtn"> Select Semester</a>
+            <a href="javascript:void(0)" class="ssbtn"> Select Semester</a>
             <div class="semesterselect-content">
-              <option value="" onClick={() => {updateCourseColumns()}}>Fall Semester</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
+              <div id="1" data-value="1" onClick={() => {console.log(data-value)}}>Fall Semester</div>
+              <option value="2" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
+              <option value="3" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
             </div>
         </li>
         <a class ="help" href="#">Help</a>
