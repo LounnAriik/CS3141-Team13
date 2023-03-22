@@ -131,10 +131,7 @@ a{
   text-decoration: none;
   display: block;
   text-align: left;
-}
-
-.semesterselect-content a:hover{
-  background-color: #D8DAD4;
+  user-select: none;
 }
 
 .semesterselect:hover .semesterselect-content{
@@ -143,12 +140,13 @@ a{
 
 .semesterselect-content option:hover {
   background-color: gray;
+  user-select: none;
 }
 
 .yearselect-content{
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: #D8DAD4;
   min-width: 100px;
   z-index: 1;
 }
@@ -158,12 +156,14 @@ a{
   text-decoration: none;
   display: block;
   text-align: left;
-}
-
-.yearselect-content a:hover{
-  background-color: white;
+  user-select: none;
 }
 
 .yearselect:hover .yearselect-content{
   display: block;
+}
+
+.yearselect-content option:hover {
+  background-color: gray;
+  user-select: none;
 }
