@@ -384,19 +384,19 @@ function App() {
         <li class = "yearselect">
             <a href="javascript:void(0)" class="ysbtn">Select Year</a>
             <div class="yearselect-content">
-              <option value="" onClick={() => {updateCourseColumns()}}>Year 1</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Year 2</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Year 3</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Year 4</option>
+              <option value="y1" onClick={() => {updateCourseColumns()}}>Year 1</option>
+              <option value="y2" onClick={() => {updateCourseColumns()}}>Year 2</option>
+              <option value="y3" onClick={() => {updateCourseColumns()}}>Year 3</option>
+              <option value="y4" onClick={() => {updateCourseColumns()}}>Year 4</option>
             </div>
         </li>
             
         <li class = "semesterselect"> 
             <a href="javascript:vois(0)" class="ssbtn"> Select Semester</a>
             <div class="semesterselect-content">
-              <option value="" onClick={() => {updateCourseColumns()}}>Fall Semester</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
+              <option value="fs" onClick={() => {updateCourseColumns()}}>Fall Semester</option>
+              <option value="springs" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
+              <option value="summers" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
             </div>
         </li>
         <a class ="help" href="#">Help</a>

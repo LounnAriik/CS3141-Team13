@@ -125,7 +125,7 @@ a{
   z-index: 1;
 }
 
-.semesterselect-content a{
+.semesterselect-content option{
   color: black;
   padding: 10 px 10 px;
   text-decoration: none;
@@ -143,6 +143,10 @@ a{
   user-select: none;
 }
 
+.semesterselect-content:checked{
+  
+}
+
 .yearselect-content{
   display: none;
   position: absolute;
@@ -151,7 +155,7 @@ a{
   z-index: 1;
 }
 
-.yearselect-content a{
+.yearselect-content option{
   color: black;
   text-decoration: none;
   display: block;
