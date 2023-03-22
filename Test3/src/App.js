@@ -349,7 +349,7 @@ function App() {
   return (
    <div>
     <div>
-        <input placeholder="Enter class title" onChange={event => setQuery(event.target.value)} />
+        <input placeholder="Enter CS class title or number" onChange={event => setQuery(event.target.value)} />
       { data.filter(classes => {
       if (query === ''){
         return null;
@@ -358,17 +358,13 @@ function App() {
         return null;
       }
         if (classes.subject === 'CS'){
-          if (classes.title.toLowerCase().includes(query.toLowerCase())) {
+          if (classes.title.toLowerCase().includes(query.toLowerCase()) || classes.crse.toString().includes(query.toString())) {
             return classes.title;
             }
         } else {
           return null;
         }
         
-       
-        if (classes.crse.includes(query)) {
-          return classes;  
-      }
       
       }).map((classes, index) => (
         <div className="box" key={index}>
