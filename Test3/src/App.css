@@ -43,7 +43,7 @@ a{
     color:#D8DAD4;
     padding-right: 70px;
 }
-  .about::after{
+  .link::after{
     content: '';
     display: block;
     width: 0;
@@ -51,7 +51,7 @@ a{
     background: #D8DAD4;
     transition: width .3s;
   }
-  .about:hover::after{
+  .link:hover::after{
     width: 100%;
     transition: width .3s;
   }
@@ -67,18 +67,7 @@ a{
     width: 100%;
     transition: width .3s;
   }
-  .help::after{
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #D8DAD4;
-    transition: width .3s;
-  }
-  .help:hover::after{
-    width: 100%;
-    transition: width .3s;
-  }
+
   .visually-hidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);

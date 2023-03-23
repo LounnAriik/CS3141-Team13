@@ -5,7 +5,14 @@ import './App.css';
 import Search from "./search";
 import data from "./response_1678212061808.json";
 import './XMLCourses.xml';
-
+import About from "./about";
+import Help from "./help";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 // Array for buildCourseByTransfer
 let transferArray = new Array();
@@ -340,8 +347,20 @@ function App() {
   const [query, setQuery] = useState("")
   const [columns, setColumns] = useState(columnsFromBackend);
   useEffect(() => {getTransferArray()},[]);
-
+/*
+  let component 
+  switch(window.location.pathname){
+    case"/":
+      component = App 
+      break
+    case"/help":
+      component = help 
+    case"/about":
+      component = about 
+  }
+*/
   return (
+<Router>
    <div>
     <div>
         <input placeholder="Enter CS class title or number" onChange={event => setQuery(event.target.value)} />
@@ -389,15 +408,24 @@ function App() {
         <li class = "semesterselect"> 
             <a href="javascript:void(0)" class="ssbtn"> Select Semester</a>
             <div class="semesterselect-content">
-              <option value="" onClick={() => {updateCourseColumns()}}>Fall Semester</option>
+              <option data-value={1} onClick={() => {updateCourseColumns()}}>Fall Semester</option>
               <option value="" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
               <option value="" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
             </div>
         </li>
-        <a class ="help" href="#">Help</a>
-        <a class ="about" href="#">About</a>
+        
+        <Link to="/help" className="link">Help</Link>
+        <Link to ="/about" className="link">About</Link>
+        
        </header>
-
+       
+        <Routes>
+          <Route exact path="/" />
+          <Route path="/about" element={<About/>}/>
+         
+          <Route path = "/help" element={<Help/>}/>
+         
+        </Routes>
        
 
         {Object.entries(columns).map(([columnId, column], index) => {
@@ -474,7 +502,7 @@ function App() {
       </DragDropContext>      
     </div>
     </div>
-    
+    </Router>
   );
   
 }
