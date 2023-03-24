@@ -315,32 +315,46 @@ function searchList() {
   );
 }
 
+
+var yearSelected = 1;
+var semesterSelected = 1;
+
 // Function to update the arrays of courses that make up the columns
-function updateCourseColumns(){
+function updateCourseColumns(clicked){
 
-  var semesterSelected = 1;
-  var yearSelected = 1;
+  var firstChar = clicked.charAt(0);
+  console.log (firstChar);
 
-  if (document.getElementById("ysbtn").value != null) {
-    yearSelected = document.getElementById("ysbtn").value;
+  if (firstChar == 'y'){
+
+    if (document.getElementById(clicked).dataset.value != null) {
+      yearSelected = document.getElementById(clicked).dataset.value;
+      console.log("print test: " + yearSelected);
+    }
+
   }
 
-  if (document.getElementById("test").value != null) {
-    semesterSelected = document.getElementById("test").value;
+  if (firstChar == 's'){
+
+    if (document.getElementById(clicked).dataset.value != null) {
+      semesterSelected = document.getElementById(clicked).dataset.value;
+      console.log("print test: " + semesterSelected);
+    }
+
   }
+
   
   columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  console.log(columnsFromBackend[0]);
-  console.log(columnsFromBackend[1]);
-  console.log(columnsFromBackend[2]);
+  // console.log(columnsFromBackend[0]);
+  // console.log(columnsFromBackend[1]);
+  // console.log(columnsFromBackend[2]);
 
-
+  // setColumns = columnsFromBackend;
 
 }
-
 
 
 function App() {
@@ -398,19 +412,19 @@ function App() {
         <li class = "yearselect">
             <a href="javascript:void(0)" class="ysbtn">Select Year</a>
             <div class="yearselect-content">
-              <option value="1" onClick={() => {updateCourseColumns()}}>Year 1</option>
-              <option value="2" onClick={() => {updateCourseColumns()}}>Year 2</option>
-              <option value="3" onClick={() => {updateCourseColumns()}}>Year 3</option>
-              <option value="4" onClick={() => {updateCourseColumns()}}>Year 4</option>
+              <option id="y1" value="1" onClick={() => {updateCourseColumns("y1")}}>Year 1</option>
+              <option id="y2" value="2" onClick={() => {updateCourseColumns("y2")}}>Year 2</option>
+              <option id="y3" value="3" onClick={() => {updateCourseColumns("y3")}}>Year 3</option>
+              <option id="y4" value="4" onClick={() => {updateCourseColumns("y4")}}>Year 4</option>
             </div>
         </li>
             
         <li class = "semesterselect"> 
             <a href="javascript:void(0)" class="ssbtn"> Select Semester</a>
             <div class="semesterselect-content">
-              <option data-value={1} onClick={() => {updateCourseColumns()}}>Fall Semester</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Spring Semester</option>
-              <option value="" onClick={() => {updateCourseColumns()}}>Summer Semester</option>
+              <option id="s1" value="1" onClick={() => {updateCourseColumns("s1")}}>Fall Semester</option>
+              <option id="s2" value="2" onClick={() => {updateCourseColumns("s2")}}>Spring Semester</option>
+              <option id="s3" value="3" onClick={() => {updateCourseColumns("s3")}}>Summer Semester</option>
             </div>
         </li>
         
