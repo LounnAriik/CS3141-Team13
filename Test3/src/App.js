@@ -326,18 +326,16 @@ function updateCourseColumns(clicked){
   console.log (firstChar);
 
   if (firstChar == 'y'){
-
-    if (document.getElementById(clicked).dataset.value != null) {
-      yearSelected = document.getElementById(clicked).dataset.value;
+    if (document.getElementById(clicked).value != null) {
+      yearSelected = document.getElementById(clicked).value;
       console.log("print test: " + yearSelected);
     }
 
   }
 
   if (firstChar == 's'){
-
-    if (document.getElementById(clicked).dataset.value != null) {
-      semesterSelected = document.getElementById(clicked).dataset.value;
+    if (document.getElementById(clicked).value != null) {
+      semesterSelected = document.getElementById(clicked).value;
       console.log("print test: " + semesterSelected);
     }
 
