@@ -81,7 +81,7 @@ const fourthYearSpringCourses = [
 ];
 
 
-var hardCodedRegistrationClass = "3";
+var hardCodedRegistrationClass = "1";
 var hardCodedSemester = "1";
 
 const columnsFromBackend = {
@@ -341,13 +341,40 @@ function updateCourseColumns(clicked){
 
   }
 
+
+  // for (var i = 0; i < columnsFromBackend[0].items.length; i++) {
+  //   columnsFromBackend[0].items.pop();
+  // }
+  // var tempAvailableCourses = referenceAvailableCourses(yearSelected, semesterSelected);
+  // for (var i = 0; i < tempAvailableCourses.length; i++) {
+  //   columnsFromBackend[0].items.push({ id: uuid(), content:"" + tempAvailableCourses[i] + ""});
+  // }
+
+  
+  // for (var i = 0; i < columnsFromBackend[1].items.length; i++) {
+  //   columnsFromBackend[1].items.pop();
+  // }
+  // var tempWorkspaceCourses = referenceWorkspaceCourses(yearSelected, semesterSelected);
+  // for (var i = 0; i < tempWorkspaceourses.length; i++) {
+  //   columnsFromBackend[1].items.push({ id: uuid(), content:"" + tempWorkspaceCourses[i] + ""});
+  // }
+
+
+  // for (var i = 0; i < columnsFromBackend[2].items.length; i++) {
+  //   columnsFromBackend[2].items.pop();
+  // }
+  // var tempTakenCourses = referenceTakenCourses(yearSelected, semesterSelected);
+  // for (var i = 0; i < tempTakenCourses.length; i++) {
+  //   columnsFromBackend[2].items.push({ id: uuid(), content:"" + tempTakenCourses[i] + ""});
+  // }
+
   columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  console.log(columnsFromBackend[0]);
-  console.log(columnsFromBackend[1]);
-  console.log(columnsFromBackend[2]);
+  // console.log(columnsFromBackend[0]);
+  // console.log(columnsFromBackend[1]);
+  // console.log(columnsFromBackend[2]);
 
   // setColumns = columnsFromBackend;
 
