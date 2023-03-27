@@ -341,14 +341,13 @@ function updateCourseColumns(clicked){
 
   }
 
-  
   columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  // console.log(columnsFromBackend[0]);
-  // console.log(columnsFromBackend[1]);
-  // console.log(columnsFromBackend[2]);
+  console.log(columnsFromBackend[0]);
+  console.log(columnsFromBackend[1]);
+  console.log(columnsFromBackend[2]);
 
   // setColumns = columnsFromBackend;
 
