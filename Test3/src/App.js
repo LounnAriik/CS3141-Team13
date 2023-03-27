@@ -353,6 +353,9 @@ function updateCourseColumns(clicked){
 
 }
 
+function buildCourseBySearch(title) {
+  columnsFromBackend[2].items.push({ id: uuid(), content:"" + title + ""});
+}
 
 function App() {
   const [query, setQuery] = useState("")
@@ -392,7 +395,7 @@ function App() {
         
       
       }).map((classes, index) => (
-        <div className="box" key={index}>
+        <div className="box" key={index} onClick={() => {buildCourseBySearch(classes.title)}}>
           <p>{classes.title}</p>
           <p>{classes.subject + " " + classes.crse}</p>
         </div>
