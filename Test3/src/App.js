@@ -22,98 +22,101 @@ const firstYearFallCourses= [
 
 const firstYearSpringCourses = [
   { id: uuid(), content: "Intro to Programming I" },
-  { id: uuid(), content: "Calculus I" },
-  { id: uuid(), content: "Linear Algebra" }
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" }
 ];
 
 const secondYearFallCourses = [
   { id: uuid(), content: "Intro to Programming I" },
-  { id: uuid(), content: "Calculus I" },
-  { id: uuid(), content: "Linear Algebra" },
-  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" },
   { id: uuid(), content: "Intro to Programming II" },
-  { id: uuid(), content: "Calculus II" }
+  { id: uuid(), content: "Calculus with Technology II" }
+
 ];
 
 const secondYearSpringCourses = [
   { id: uuid(), content: "Intro to Programming I" },
-  { id: uuid(), content: "Calculus I" },
-  { id: uuid(), content: "Linear Algebra" },
-  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" },
   { id: uuid(), content: "Intro to Programming II" },
-  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Calculus with Technology II" },
   { id: uuid(), content: "Data Structures" },
-  { id: uuid(), content: "HW/SW Interface Programming" },
+  { id: uuid(), content: "Discrete Structures" },
   { id: uuid(), content: "Statistical Methods" }
+
 ];
 
 const thirdYearFallCourses = [
   { id: uuid(), content: "Intro to Programming I" },
-  { id: uuid(), content: "Calculus I" },
-  { id: uuid(), content: "Linear Algebra" },
-  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" },
   { id: uuid(), content: "Intro to Programming II" },
-  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Calculus with Technology II" },
   { id: uuid(), content: "Data Structures" },
-  { id: uuid(), content: "HW/SW Interface Programming" },
-  { id: uuid(), content: "Statistical Methods" }
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Statistical Methods" },
+  { id: uuid(), content: "Programming at HW/SW Interface" },
+  { id: uuid(), content: "Intro to Database Systems" },
+  { id: uuid(), content: "Introduction to Linear Algebra" }
 
 ];
 
 const thirdYearSpringCourses = [
   { id: uuid(), content: "Intro to Programming I" },
-  { id: uuid(), content: "Calculus I" },
-  { id: uuid(), content: "Linear Algebra" },
-  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" },
   { id: uuid(), content: "Intro to Programming II" },
-  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Calculus with Technology II" },
   { id: uuid(), content: "Data Structures" },
-  { id: uuid(), content: "HW/SW Interface Programming" },
-  { id: uuid(), content: "Statistical Methods" }, 
-  { id: uuid(), content: "Formal Models of Computation" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Statistical Methods" },
+  { id: uuid(), content: "Programming at HW/SW Interface" },
   { id: uuid(), content: "Intro to Database Systems" },
-  { id: uuid(), content: "Team Software Project" }
+  { id: uuid(), content: "Introduction to Linear Algebra" },
+  { id: uuid(), content: "Systems Programming" },
+  { id: uuid(), content: "Computer Organization" }
 
 ];
 
 const fourthYearFallCourses = [
   { id: uuid(), content: "Intro to Programming I" },
-  { id: uuid(), content: "Calculus I" },
-  { id: uuid(), content: "Linear Algebra" },
-  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" },
   { id: uuid(), content: "Intro to Programming II" },
-  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Calculus with Technology II" },
   { id: uuid(), content: "Data Structures" },
-  { id: uuid(), content: "HW/SW Interface Programming" },
-  { id: uuid(), content: "Statistical Methods" }, 
-  { id: uuid(), content: "Formal Models of Computation" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Statistical Methods" },
+  { id: uuid(), content: "Programming at HW/SW Interface" },
   { id: uuid(), content: "Intro to Database Systems" },
-  { id: uuid(), content: "Team Software Project" },
+  { id: uuid(), content: "Introduction to Linear Algebra" },
+  { id: uuid(), content: "Systems Programming" },
   { id: uuid(), content: "Computer Organization" },
-  { id: uuid(), content: "Ethical/Social Aspects of Computing" },
-  { id: uuid(), content: "Concurrent Computing" }
+  { id: uuid(), content: "Team Software Project" },
+  { id: uuid(), content: "Formal Models of Computation" }
 
 ];
 
 const fourthYearSpringCourses = [
   { id: uuid(), content: "Intro to Programming I" },
-  { id: uuid(), content: "Calculus I" },
-  { id: uuid(), content: "Linear Algebra" },
-  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" },
   { id: uuid(), content: "Intro to Programming II" },
-  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Calculus with Technology II" },
   { id: uuid(), content: "Data Structures" },
-  { id: uuid(), content: "HW/SW Interface Programming" },
-  { id: uuid(), content: "Statistical Methods" }, 
-  { id: uuid(), content: "Formal Models of Computation" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Statistical Methods" },
+  { id: uuid(), content: "Programming at HW/SW Interface" },
   { id: uuid(), content: "Intro to Database Systems" },
-  { id: uuid(), content: "Team Software Project" },
-  { id: uuid(), content: "Computer Organization" },
-  { id: uuid(), content: "Ethical/Social Aspects of Computing" },
-  { id: uuid(), content: "Concurrent Computing" },
-  { id: uuid(), content: "Intro to Algorithms" },
+  { id: uuid(), content: "Introduction to Linear Algebra" },
   { id: uuid(), content: "Systems Programming" },
-  { id: uuid(), content: "Computer Networks" }
+  { id: uuid(), content: "Computer Organization" },
+  { id: uuid(), content: "Team Software Project" },
+  { id: uuid(), content: "Formal Models of Computation" },
+  { id: uuid(), content: "Concurrent Computing" },
+  { id: uuid(), content: "Introduction to Algorithms" }
+  
 ];
 
 
@@ -189,7 +192,22 @@ function clickClass(content){
     }
     alert("Description: " + desc);
     alert("Prereq(s): " + pre + "\n\nCredits(min): " + min + "\n\nCredits(max): " + max);
+    calculateCredits();
   }
+}
+
+function calculateCredits() {
+  var low = 0;
+  var high = 0;
+  for (var i = 0; i < columnsFromBackend[2].items.length; i++) {
+    var newArray = data.filter(function (el) {
+      return el.title == columnsFromBackend[2].items[i].content;
+    });
+    low += newArray[0].minCredits;
+    high += newArray[0].maxCredits;
+  }
+  console.log(low);
+  console.log(high);
 }
 
 function referenceAvailableCourses(registrationClass, semester){
