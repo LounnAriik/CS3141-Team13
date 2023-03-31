@@ -5,8 +5,6 @@ import './App.css';
 import Search from "./search";
 import data from "./response_1678212061808.json";
 import './XMLCourses.xml';
-import About from "./about";
-import Help from "./help";
 import {
   BrowserRouter as Router,
   Routes,
@@ -374,7 +372,7 @@ function App() {
   }
 */
   return (
-<Router>
+
    <div>
     <div>
         <input placeholder="Enter CS class title or number" onChange={event => setQuery(event.target.value)} />
@@ -428,19 +426,12 @@ function App() {
             </div>
         </li>
         
-        <Link to="/help" className="link">Help</Link>
-        <Link to ="/about" className="link">About</Link>
+        <a href="help.html" className="link">Help</a>
+        <a href="about.html" className="link">About</a>
         
        </header>
        
-        <Routes>
-          <Route exact path="/" />
-          <Route path="/about" element={<About/>}/>
-         
-          <Route path = "/help" element={<Help/>}/>
-         
-        </Routes>
-       
+     
 
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
@@ -516,7 +507,7 @@ function App() {
       </DragDropContext>      
     </div>
     </div>
-    </Router>
+    
   );
   
 }
