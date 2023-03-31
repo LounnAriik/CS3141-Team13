@@ -183,7 +183,8 @@ function clickClass(content){
     if (newArray[0].prereqs != null) {
       pre = newArray[0].prereqs;
     }
-    alert("Description: " + desc + "\n\nPrereq(s): " + pre + "\n\nCredits(min): " + min + "\n\nCredits(max): " + max);
+    alert("Description: " + desc);
+    alert("Prereq(s): " + pre + "\n\nCredits(min): " + min + "\n\nCredits(max): " + max);
   }
 }
 
@@ -424,14 +425,26 @@ function App() {
       if (classes.subject != 'CS'){
         return null;
       }
-        if (classes.subject === 'CS'){
-          if (classes.title.toLowerCase().includes(query.toLowerCase()) || classes.crse.toString().includes(query.toString())) {
-            return classes.title;
-            }
-        } else {
-          return null;
-        }
-        
+      switch (semesterSelected == 1)
+      {
+        case true:
+          if (classes.subject === 'CS' && classes.semester == 'FALL'){
+            if (classes.title.toLowerCase().includes(query.toLowerCase()) || classes.crse.toString().includes(query.toString())) {
+              return classes.title;
+              }
+          } else {
+            return null;
+          }
+
+        case false:
+          if (classes.subject === 'CS' && classes.semester == 'SPRING'){
+            if (classes.title.toLowerCase().includes(query.toLowerCase()) || classes.crse.toString().includes(query.toString())) {
+              return classes.title;
+              }
+          } else {
+            return null;
+          }
+      }
       
       }).map((classes, index) => (
         <div className="box" key={index} onClick={() => {buildCourseBySearch(classes.title)}}>
