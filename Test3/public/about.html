@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <style>
+      html,
+      body,
+     
+
+      body {
+        margin: 0;
+        background-color: #283246;
+        font-family: "Roboto", sans-serif;
+      }
+      li
+       {
+        list-style: none;
+        display: inline-block;
+        float:right;
+        margin-top:2.7vh;
+        margin-right: 9.7vh;
+        margin-left:17.4vh
+        
+      }
+      li, a{
+        font-family: "Roboto", sans-serif;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        }
+      a{
+        color:#D8DAD4;
+      }
+        li::after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #D8DAD4;
+            transition: width .3s;
+        }
+        li:hover::after{
+            width: 100%;
+            transition: width .3s;
+        }
+    </style>
+    <head>
+        <body>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="help.html">Help</a>
+                    </li>
+                </ul>
+            </nav>
+        </body>
+    </head>
+</html>
