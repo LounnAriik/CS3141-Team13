@@ -17,67 +17,101 @@ import {
 // Array for buildCourseByTransfer
 let transferArray = new Array();
 
-const firstYearFallCourses = [
-  { id: uuid(), content: "Intro to CS" },
-  { id: uuid(), content: "Calculus" },
-  { id: uuid(), content: "Composition" },
-  { id: uuid(), content: "Intro to Chemistry" },
-  { id: uuid(), content: "Technical Elective" }
-];
-
+// These hard-coded arrays of courses are what we assume a student to have taken, and they will populate in the taken courses column.
 const firstYearSpringCourses = [
-  { id: uuid(), content: "Intro to Programming II" },
-  { id: uuid(), content: "Calculus II" },
-  { id: uuid(), content: "Global Issues" },
-  { id: uuid(), content: "Discrete Structures" },
-  { id: uuid(), content: "Co-Curricular" }
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus I" },
+  { id: uuid(), content: "Linear Algebra" }
 ];
 
 const secondYearFallCourses = [
-  { id: uuid(), content: "Data Structures" },
-  { id: uuid(), content: "HW/SW Interface Programming" },
-  { id: uuid(), content: "Formal Models of Computation" },
-  { id: uuid(), content: "Statistical Methods" },
-  { id: uuid(), content: "HASS Elective" }
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus I" },
+  { id: uuid(), content: "Linear Algebra" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Intro to Programming II" },
+  { id: uuid(), content: "Calculus II" }
 ];
 
 const secondYearSpringCourses = [
-  { id: uuid(), content: "Intro to Database Systems" },
-  { id: uuid(), content: "Team Software Project" },
-  { id: uuid(), content: "Elective Math" },
-  { id: uuid(), content: "HASS Elective" },
-  { id: uuid(), content: "Co-Curricular" }
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus I" },
+  { id: uuid(), content: "Linear Algebra" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Intro to Programming II" },
+  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Data Structures" },
+  { id: uuid(), content: "HW/SW Interface Programming" },
+  { id: uuid(), content: "Statistical Methods" }
 ];
 
 const thirdYearFallCourses = [
-  { id: uuid(), content: "Concurrent Computing" },
-  { id: uuid(), content: "Computer Organization" },
-  { id: uuid(), content: "Ethical/Social Aspects of Computing" },
-  { id: uuid(), content: "CS Elective" },
-  { id: uuid(), content: "Co-Curricular" }
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus I" },
+  { id: uuid(), content: "Linear Algebra" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Intro to Programming II" },
+  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Data Structures" },
+  { id: uuid(), content: "HW/SW Interface Programming" },
+  { id: uuid(), content: "Statistical Methods" }
+
 ];
 
 const thirdYearSpringCourses = [
-  { id: uuid(), content: "Systems Programming" },
-  { id: uuid(), content: "CS Elective" },
-  { id: uuid(), content: "HASS Elective" },
-  { id: uuid(), content: "Technical Elective" },
-  { id: uuid(), content: "Co-Curricular" }
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus I" },
+  { id: uuid(), content: "Linear Algebra" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Intro to Programming II" },
+  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Data Structures" },
+  { id: uuid(), content: "HW/SW Interface Programming" },
+  { id: uuid(), content: "Statistical Methods" }, 
+  { id: uuid(), content: "Formal Models of Computation" },
+  { id: uuid(), content: "Intro to Database Systems" },
+  { id: uuid(), content: "Team Software Project" }
+
 ];
 
 const fourthYearFallCourses = [
-  { id: uuid(), content: "Intro to Algorithms" },
-  { id: uuid(), content: "CS Elective" },
-  { id: uuid(), content: "Technical Elective" },
-  { id: uuid(), content: "Co-curricular" }
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus I" },
+  { id: uuid(), content: "Linear Algebra" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Intro to Programming II" },
+  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Data Structures" },
+  { id: uuid(), content: "HW/SW Interface Programming" },
+  { id: uuid(), content: "Statistical Methods" }, 
+  { id: uuid(), content: "Formal Models of Computation" },
+  { id: uuid(), content: "Intro to Database Systems" },
+  { id: uuid(), content: "Team Software Project" },
+  { id: uuid(), content: "Computer Organization" },
+  { id: uuid(), content: "Ethical/Social Aspects of Computing" },
+  { id: uuid(), content: "Concurrent Computing" }
+
 ];
 
 const fourthYearSpringCourses = [
-  { id: uuid(), content: "Programming Languages" },
-  { id: uuid(), content: "Technical Elective" },
-  { id: uuid(), content: "CS Elective" },
-  { id: uuid(), content: "Technical and Professional Communication" },
-  { id: uuid(), content: "Technology and Society Elective" }
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus I" },
+  { id: uuid(), content: "Linear Algebra" },
+  { id: uuid(), content: "Discrete Structures" },
+  { id: uuid(), content: "Intro to Programming II" },
+  { id: uuid(), content: "Calculus II" },
+  { id: uuid(), content: "Data Structures" },
+  { id: uuid(), content: "HW/SW Interface Programming" },
+  { id: uuid(), content: "Statistical Methods" }, 
+  { id: uuid(), content: "Formal Models of Computation" },
+  { id: uuid(), content: "Intro to Database Systems" },
+  { id: uuid(), content: "Team Software Project" },
+  { id: uuid(), content: "Computer Organization" },
+  { id: uuid(), content: "Ethical/Social Aspects of Computing" },
+  { id: uuid(), content: "Concurrent Computing" },
+  { id: uuid(), content: "Intro to Algorithms" },
+  { id: uuid(), content: "Systems Programming" },
+  { id: uuid(), content: "Computer Networks" }
 ];
 
 
@@ -144,28 +178,28 @@ function clickClass(){
 function referenceAvailableCourses(registrationClass, semester){
 
   if (registrationClass == "1" && semester == "1") {
-      return firstYearFallCourses;
+      return [];
   }
   if (registrationClass == "1" && semester == "2") {
-    return firstYearSpringCourses;
+    return [];
   }
   if (registrationClass == "2" && semester == "1") {
-    return secondYearFallCourses;
+    return [];
   }
   if (registrationClass == "2" && semester == "2") {
-    return secondYearSpringCourses;
+    return [];
   }
   if (registrationClass == "3" && semester == "1") {
-    return thirdYearFallCourses;
+    return [];
   }
   if (registrationClass == "3" && semester == "2") {
-    return thirdYearSpringCourses;
+    return [];
   }
   if (registrationClass == "4" && semester == "1") {
-    return fourthYearFallCourses;
+    return [];
   }
   if (registrationClass == "4" && semester == "2") {
-    return fourthYearSpringCourses;
+    return [];
   }  
 
 }
@@ -318,7 +352,6 @@ function searchList() {
 
 var yearSelected = 1;
 var semesterSelected = 1;
-
 // Function to update the arrays of courses that make up the columns
 function updateCourseColumns(clicked){
 
@@ -341,47 +374,14 @@ function updateCourseColumns(clicked){
 
   }
 
-
-  // for (var i = 0; i < columnsFromBackend[0].items.length; i++) {
-  //   columnsFromBackend[0].items.pop();
-  // }
-  // var tempAvailableCourses = referenceAvailableCourses(yearSelected, semesterSelected);
-  // for (var i = 0; i < tempAvailableCourses.length; i++) {
-  //   columnsFromBackend[0].items.push({ id: uuid(), content:"" + tempAvailableCourses[i] + ""});
-  // }
-
-  
-  // for (var i = 0; i < columnsFromBackend[1].items.length; i++) {
-  //   columnsFromBackend[1].items.pop();
-  // }
-  // var tempWorkspaceCourses = referenceWorkspaceCourses(yearSelected, semesterSelected);
-  // for (var i = 0; i < tempWorkspaceourses.length; i++) {
-  //   columnsFromBackend[1].items.push({ id: uuid(), content:"" + tempWorkspaceCourses[i] + ""});
-  // }
-
-
-  // for (var i = 0; i < columnsFromBackend[2].items.length; i++) {
-  //   columnsFromBackend[2].items.pop();
-  // }
-  // var tempTakenCourses = referenceTakenCourses(yearSelected, semesterSelected);
-  // for (var i = 0; i < tempTakenCourses.length; i++) {
-  //   columnsFromBackend[2].items.push({ id: uuid(), content:"" + tempTakenCourses[i] + ""});
-  // }
-
   columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  // console.log(columnsFromBackend[0]);
-  // console.log(columnsFromBackend[1]);
-  // console.log(columnsFromBackend[2]);
-
-  // setColumns = columnsFromBackend;
-
 }
 
 function buildCourseBySearch(title) {
-  columnsFromBackend[2].items.push({ id: uuid(), content:"" + title + ""});
+  columnsFromBackend[0].items.push({ id: uuid(), content:"" + title + ""});
 }
 
 function App() {
