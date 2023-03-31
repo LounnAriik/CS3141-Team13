@@ -168,9 +168,23 @@ const onDragEnd = (result, columns, setColumns) => {
   }
 };
 
-function clickClass(){
-  var timestamp = new Date();
-  console.log(timestamp);
+function clickClass(content){
+  var newArray = data.filter(function (el) {
+    return el.title == content;
+  });
+  if (newArray.length == 0) {
+    alert("There is no course by the name " + content);
+  } else {
+    var desc, min, max;
+    var pre = "None";
+    desc = newArray[0].description;
+    min = newArray[0].minCredits;
+    max = newArray[0].maxCredits;
+    if (newArray[0].prereqs != null) {
+      pre = newArray[0].prereqs;
+    }
+    alert("Description: " + desc + "\n\nPrereq(s): " + pre + "\n\nCredits(min): " + min + "\n\nCredits(max): " + max);
+  }
 }
 
 function referenceAvailableCourses(registrationClass, semester){
@@ -499,7 +513,7 @@ function App() {
                               {(provided, snapshot) => {
                                 return (
                                   <div
-                                  onClick={clickClass}
+                                  onClick={() => {clickClass(item.content)}}
                                     ref={provided.innerRef}
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
