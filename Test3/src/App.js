@@ -16,6 +16,10 @@ import {
 let transferArray = new Array();
 
 // These hard-coded arrays of courses are what we assume a student to have taken, and they will populate in the taken courses column.
+const firstYearFallCourses= [
+
+]
+
 const firstYearSpringCourses = [
   { id: uuid(), content: "Intro to Programming I" },
   { id: uuid(), content: "Calculus I" },
@@ -390,6 +394,11 @@ function updateCourseColumns(clicked){
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
+  //window.top = history.go(0);
+  //location.reload(false);
+  //window.location.href = window.location.href;
+
+  
 }
 
 function buildCourseBySearch(title) {
@@ -488,7 +497,7 @@ function App() {
                 <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
                     return (
-                      <div
+                      <div 
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         style={{
@@ -500,6 +509,8 @@ function App() {
                           padding: 4,
                           width: 250,
                         }}
+
+                        scrolling = "yes"
                       >
 
                         {column.items.map((item, index) => {
