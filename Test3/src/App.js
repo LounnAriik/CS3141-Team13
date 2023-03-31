@@ -476,7 +476,6 @@ function App() {
             <div class="semesterselect-content">
               <option id="s1" value="1" onClick={() => {updateCourseColumns("s1")}}>Fall Semester</option>
               <option id="s2" value="2" onClick={() => {updateCourseColumns("s2")}}>Spring Semester</option>
-              <option id="s3" value="3" onClick={() => {updateCourseColumns("s3")}}>Summer Semester</option>
             </div>
         </li>
         
