@@ -17,7 +17,9 @@ let transferArray = new Array();
 
 // These hard-coded arrays of courses are what we assume a student to have taken, and they will populate in the taken courses column.
 const firstYearFallCourses= [
-
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" }
 ]
 
 const firstYearSpringCourses = [
@@ -213,7 +215,7 @@ function calculateCredits() {
 function referenceAvailableCourses(registrationClass, semester){
 
   if (registrationClass == "1" && semester == "1") {
-      return [];
+      return firstYearFallCourses;
   }
   if (registrationClass == "1" && semester == "2") {
     return [];
@@ -398,7 +400,6 @@ function updateCourseColumns(clicked){
       yearSelected = document.getElementById(clicked).value;
       console.log("print test: " + yearSelected);
     }
-
   }
 
   if (firstChar == 's'){
@@ -406,18 +407,36 @@ function updateCourseColumns(clicked){
       semesterSelected = document.getElementById(clicked).value;
       console.log("print test: " + semesterSelected);
     }
-
   }
 
-  columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
+  var tempAvailableCourses = new Array;
+
+  // Update the other course columns regularly
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  //window.top = history.go(0);
-  //location.reload(false);
-  //window.location.href = window.location.href;
+  for (var i = 0; i < columnsFromBackend[0].items.length; i++){
+    tempAvailableCourses[i] = columnsFromBackend[0].items[i];
+  }
+  columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
 
-  
+  // Update the available course columns, but consider courses that are already in the available courses view.
+  for (var i = 0; i < tempAvailableCourses.length; i++){
+
+    // Consider the case that the available courses are in the taken courses. They should not be added if this is the case.
+    for (var j in columnsFromBackend[2].items){
+      
+      for (var k in columnsFromBackend[0].items){
+
+        // Condition to verify that the course being pushed to the available course column doesn't already exist in
+        // That column and that it does not exist in the taken column.
+        if (tempAvailableCourses[i] != j && tempAvailableCourses[i] != k){
+          columnsFromBackend[0].items.push(tempAvailableCourses[i]);
+        }
+      }
+    }
+  }
+
 }
 
 function buildCourseBySearch(title) {
