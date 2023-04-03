@@ -85,6 +85,9 @@ a{
 }
 .list{
   margin-left: 50px;
+  height: 120px;
+  overflow-y: scroll;
+  margin-right: 0%;
 }
 .box {
   white-space: nowrap;
@@ -95,7 +98,6 @@ a{
   width: 20rem;
   padding-left: 10px;
   background-color: #D8DAD4;
-  overflow: hidden;
 }
 .box:hover {
   background-color: rgb(18, 92, 170);
