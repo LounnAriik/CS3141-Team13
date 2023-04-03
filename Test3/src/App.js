@@ -150,6 +150,10 @@ const onDragEnd = (result, columns, setColumns) => {
     const sourceItems = [...sourceColumn.items];
     const destItems = [...destColumn.items];
     const [removed] = sourceItems.splice(source.index, 1);
+    // Start of code that might cause problems
+    columnsFromBackend[source.droppableId].items.splice(columnsFromBackend[source.droppableId].items.indexOf(removed.content), 1);
+    columnsFromBackend[destination.droppableId].items.push({ id: uuid(), content: "" + removed.content + ""});
+    // End of code that might cause problems
     destItems.splice(destination.index, 0, removed);
     setColumns({
       ...columns,
@@ -161,7 +165,7 @@ const onDragEnd = (result, columns, setColumns) => {
         ...destColumn,
         items: destItems
       }
-    });
+    });  
   } else {
     const column = columns[source.droppableId];
     const copiedItems = [...column.items];
