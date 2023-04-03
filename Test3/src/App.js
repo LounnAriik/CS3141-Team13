@@ -126,10 +126,10 @@ var hardCodedRegistrationClass = "1";
 var hardCodedSemester = "1";
 
 const columnsFromBackend = {
-  [0]: {
-    name: "Avaliable Courses",
-    items: referenceAvailableCourses(hardCodedRegistrationClass, hardCodedSemester)
-  },
+  // [0]: {
+  //   name: "Avaliable Courses",
+  //   items: referenceAvailableCourses(hardCodedRegistrationClass, hardCodedSemester)
+  // },
   [1]: {
     name: "Course Workspace",
     items: referenceWorkspaceCourses(hardCodedRegistrationClass, hardCodedSemester)
@@ -215,7 +215,7 @@ function calculateCredits() {
 function referenceAvailableCourses(registrationClass, semester){
 
   if (registrationClass == "1" && semester == "1") {
-      return firstYearFallCourses;
+      return [];
   }
   if (registrationClass == "1" && semester == "2") {
     return [];
@@ -244,7 +244,7 @@ function referenceAvailableCourses(registrationClass, semester){
 function referenceWorkspaceCourses(registrationClass, semester){
 
   if (registrationClass == "1" && semester == "1") {
-      return [];
+      return firstYearFallCourses;
   }
   if (registrationClass == "1" && semester == "2") {
     return [];
@@ -392,6 +392,7 @@ var semesterSelected = 1;
 // Function to update the arrays of courses that make up the columns
 function updateCourseColumns(clicked){
 
+
   var firstChar = clicked.charAt(0);
   console.log (firstChar);
 
@@ -410,37 +411,46 @@ function updateCourseColumns(clicked){
   }
 
   var tempAvailableCourses = new Array;
+  
 
   // Update the other course columns regularly
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  for (var i = 0; i < columnsFromBackend[0].items.length; i++){
-    tempAvailableCourses[i] = columnsFromBackend[0].items[i];
-  }
-  columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
+  // for (var i = 0; i < columnsFromBackend[0].items.length; i++){
+  //   tempAvailableCourses[i] = columnsFromBackend[0].items[i];
+  // }
+  // columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
 
-  // Update the available course columns, but consider courses that are already in the available courses view.
-  for (var i = 0; i < tempAvailableCourses.length; i++){
+  // console.log(tempAvailableCourses);  
 
-    // Consider the case that the available courses are in the taken courses. They should not be added if this is the case.
-    for (var j in columnsFromBackend[2].items){
+  // // Update the available course columns, but consider courses that are already in the available courses view.
+  // for (var i = 0; i < tempAvailableCourses.length; i++){
+
+  //   console.log("i: " + i);
+
+  //   // Consider the case that the available courses are in the taken courses. They should not be added if this is the case.
+  //   for (var j = 0; j < columnsFromBackend[2].items.length; j++){
+
+  //     console.log("j: " + j);
       
-      for (var k in columnsFromBackend[0].items){
+  //     for (var k = 0; k < columnsFromBackend[0].items.length; k++){
 
-        // Condition to verify that the course being pushed to the available course column doesn't already exist in
-        // That column and that it does not exist in the taken column.
-        if (tempAvailableCourses[i] != j && tempAvailableCourses[i] != k){
-          columnsFromBackend[0].items.push(tempAvailableCourses[i]);
-        }
-      }
-    }
-  }
+  //       console.log("k: " + k);
+  //       // Condition to verify that the course being pushed to the available course column doesn't already exist in
+  //       // That column and that it does not exist in the taken column.
+  //       if (tempAvailableCourses[i] != columnsFromBackend[2].items[j] && tempAvailableCourses[i] != columnsFromBackend[0].items[k]){
+  //         columnsFromBackend[0].items.push(tempAvailableCourses[i]);
+  //         console.log("condition met. Course pushed to available column.")
+  //       }
+  //      }
+  //    }
+  //  }
 
 }
 
 function buildCourseBySearch(title) {
-  columnsFromBackend[0].items.push({ id: uuid(), content:"" + title + ""});
+  columnsFromBackend[1].items.push({ id: uuid(), content:"" + title + ""});
 }
 
 function App() {
@@ -544,7 +554,7 @@ function App() {
             >
               <h2  style={{userSelect:"none", color: "#D8DAD4"}}>{column.name}</h2>
               <div style={{display:"flex", marginLeft: "50px", marginRight: "50px" }}>
-                <Droppable droppableId={columnId} key={columnId}>
+                <Droppable droppableId={columnId} key={columnId} mode="virtual">
                   {(provided, snapshot) => {
                     return (
                       <div 
