@@ -4,6 +4,8 @@
 
 .courseList{
     margin-top:75px;
+    height: 40rem;
+    overflow-y: scroll;
 }
 
 li, a, .transfer{
@@ -162,4 +164,9 @@ a{
 .yearselect-content option:hover {
   background-color: gray;
   user-select: none;
+}
+
+/* Scroll bar hidden */
+::-webkit-scrollbar{
+  width: 1px;
 }
