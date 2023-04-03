@@ -85,6 +85,7 @@ a{
 }
 .list{
   margin-left: 50px;
+  margin-top: 15px;
   height: 120px;
   overflow-y: scroll;
   margin-right: 0%;

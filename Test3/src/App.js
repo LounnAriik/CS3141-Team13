@@ -463,7 +463,7 @@ function App() {
 
    <div>
     <div className="list">
-        <input placeholder="Enter CS class title or number" onChange={event => setQuery(event.target.value)} />
+        <input placeholder="Enter class name/number" onChange={event => setQuery(event.target.value)} />
       { data.filter(classes => {
         
       if (query === ''){
