@@ -475,7 +475,15 @@ function App() {
   return (
 
    <div>
-    <div className="list">
+    
+
+    <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
+    
+      <DragDropContext
+        onDragEnd={result => onDragEnd(result, columns, setColumns)}
+      >
+       <header>
+        <div className="list">
         <input placeholder="Enter class name/number" onChange={event => setQuery(event.target.value)} />
       { data.filter(classes => {
         
@@ -513,13 +521,6 @@ function App() {
         </div>
       ))} 
   </div>
-
-    <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
-    
-      <DragDropContext
-        onDragEnd={result => onDragEnd(result, columns, setColumns)}
-      >
-       <header>
         <a class = "transfer" onClick={() => {buildCourseByTransfer()}}>Transfer</a> 
         <li class = "yearselect">
             <a href="javascript:void(0)" class="ysbtn">Select Year</a>
@@ -558,7 +559,7 @@ function App() {
             >
               <h2  style={{userSelect:"none", color: "#D8DAD4"}}>{column.name}</h2>
               <div style={{display:"flex", marginLeft: "50px", marginRight: "50px" }}>
-                <Droppable droppableId={columnId} key={columnId} mode="virtual">
+                <Droppable droppableId={columnId} key={columnId}>
                   {(provided, snapshot) => {
                     return (
                       <div 
