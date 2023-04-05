@@ -575,7 +575,7 @@ function App() {
                           width: 250,
                         }}
 
-                        scrolling = "yes"
+                        
                       >
 
                         {column.items.map((item, index) => {
