@@ -170,6 +170,11 @@ a{
 
 .courseList::-webkit-scrollbar{
   width: 0%;
-  }
+}
+
+/* Handle on hover */
+.list::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 
