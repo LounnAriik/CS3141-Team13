@@ -153,6 +153,7 @@ const onDragEnd = (result, columns, setColumns) => {
     // Start of code that might cause problems
     columnsFromBackend[source.droppableId].items.splice(columnsFromBackend[source.droppableId].items.indexOf(removed.content), 1);
     columnsFromBackend[destination.droppableId].items.push({ id: uuid(), content: "" + removed.content + ""});
+    calculateCredits();
     // End of code that might cause problems
     destItems.splice(destination.index, 0, removed);
     setColumns({
@@ -203,17 +204,14 @@ function clickClass(content){
 }
 
 function calculateCredits() {
-  var low = 0;
   var high = 0;
   for (var i = 0; i < columnsFromBackend[2].items.length; i++) {
     var newArray = data.filter(function (el) {
       return el.title == columnsFromBackend[2].items[i].content;
     });
-    low += newArray[0].minCredits;
     high += newArray[0].maxCredits;
   }
-  console.log(low);
-  console.log(high);
+  document.getElementById("demo").innerHTML = "Credits: " + high;
 }
 
 function referenceAvailableCourses(registrationClass, semester){
@@ -451,6 +449,7 @@ function updateCourseColumns(clicked){
   //    }
   //  }
 
+  calculateCredits();
 }
 
 function buildCourseBySearch(title) {
@@ -545,7 +544,7 @@ function App() {
         
        </header>
        
-     
+       <p class="counter" id="demo">Credits: 0</p>
 
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
