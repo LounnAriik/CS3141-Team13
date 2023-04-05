@@ -87,6 +87,7 @@ a{
   height: 120px;
   overflow-y: scroll;
   width: fit-content;
+  height: 150px;
 }
 .box {
   white-space: nowrap;
@@ -166,16 +167,21 @@ a{
 
 .courseList::-webkit-scrollbar{
   width: 0%;
-  }
+}
+
+/* Handle on hover */
+.list::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 
-  .counter {
-    font-family: "Roboto", sans-serif;
-    text-decoration: none;
-    font-size: 25px;
-    font-weight: bold;
-    color:#D8DAD4;
-    position: absolute;
-    bottom: 50px;
-    right: 200px;
-  }
+.counter {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  color:#D8DAD4;
+  position: absolute;
+  bottom: 50px;
+  right: 200px;
+}
