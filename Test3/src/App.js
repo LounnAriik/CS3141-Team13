@@ -17,7 +17,9 @@ let transferArray = new Array();
 
 // These hard-coded arrays of courses are what we assume a student to have taken, and they will populate in the taken courses column.
 const firstYearFallCourses= [
-
+  { id: uuid(), content: "Intro to Programming I" },
+  { id: uuid(), content: "Calculus with Technology I" },
+  { id: uuid(), content: "Explorations in Computing" }
 ]
 
 const firstYearSpringCourses = [
@@ -124,10 +126,10 @@ var hardCodedRegistrationClass = "1";
 var hardCodedSemester = "1";
 
 const columnsFromBackend = {
-  [0]: {
-    name: "Avaliable Courses",
-    items: referenceAvailableCourses(hardCodedRegistrationClass, hardCodedSemester)
-  },
+  // [0]: {
+  //   name: "Avaliable Courses",
+  //   items: referenceAvailableCourses(hardCodedRegistrationClass, hardCodedSemester)
+  // },
   [1]: {
     name: "Course Workspace",
     items: referenceWorkspaceCourses(hardCodedRegistrationClass, hardCodedSemester)
@@ -148,6 +150,10 @@ const onDragEnd = (result, columns, setColumns) => {
     const sourceItems = [...sourceColumn.items];
     const destItems = [...destColumn.items];
     const [removed] = sourceItems.splice(source.index, 1);
+    // Start of code that might cause problems
+    columnsFromBackend[source.droppableId].items.splice(columnsFromBackend[source.droppableId].items.indexOf(removed.content), 1);
+    columnsFromBackend[destination.droppableId].items.push({ id: uuid(), content: "" + removed.content + ""});
+    // End of code that might cause problems
     destItems.splice(destination.index, 0, removed);
     setColumns({
       ...columns,
@@ -159,7 +165,7 @@ const onDragEnd = (result, columns, setColumns) => {
         ...destColumn,
         items: destItems
       }
-    });
+    });  
   } else {
     const column = columns[source.droppableId];
     const copiedItems = [...column.items];
@@ -242,7 +248,7 @@ function referenceAvailableCourses(registrationClass, semester){
 function referenceWorkspaceCourses(registrationClass, semester){
 
   if (registrationClass == "1" && semester == "1") {
-      return [];
+      return firstYearFallCourses;
   }
   if (registrationClass == "1" && semester == "2") {
     return [];
@@ -390,6 +396,7 @@ var semesterSelected = 1;
 // Function to update the arrays of courses that make up the columns
 function updateCourseColumns(clicked){
 
+
   var firstChar = clicked.charAt(0);
   console.log (firstChar);
 
@@ -398,7 +405,6 @@ function updateCourseColumns(clicked){
       yearSelected = document.getElementById(clicked).value;
       console.log("print test: " + yearSelected);
     }
-
   }
 
   if (firstChar == 's'){
@@ -406,22 +412,49 @@ function updateCourseColumns(clicked){
       semesterSelected = document.getElementById(clicked).value;
       console.log("print test: " + semesterSelected);
     }
-
   }
 
-  columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
+  var tempAvailableCourses = new Array;
+  
+
+  // Update the other course columns regularly
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  //window.top = history.go(0);
-  //location.reload(false);
-  //window.location.href = window.location.href;
+  // for (var i = 0; i < columnsFromBackend[0].items.length; i++){
+  //   tempAvailableCourses[i] = columnsFromBackend[0].items[i];
+  // }
+  // columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
 
-  
+  // console.log(tempAvailableCourses);  
+
+  // // Update the available course columns, but consider courses that are already in the available courses view.
+  // for (var i = 0; i < tempAvailableCourses.length; i++){
+
+  //   console.log("i: " + i);
+
+  //   // Consider the case that the available courses are in the taken courses. They should not be added if this is the case.
+  //   for (var j = 0; j < columnsFromBackend[2].items.length; j++){
+
+  //     console.log("j: " + j);
+      
+  //     for (var k = 0; k < columnsFromBackend[0].items.length; k++){
+
+  //       console.log("k: " + k);
+  //       // Condition to verify that the course being pushed to the available course column doesn't already exist in
+  //       // That column and that it does not exist in the taken column.
+  //       if (tempAvailableCourses[i] != columnsFromBackend[2].items[j] && tempAvailableCourses[i] != columnsFromBackend[0].items[k]){
+  //         columnsFromBackend[0].items.push(tempAvailableCourses[i]);
+  //         console.log("condition met. Course pushed to available column.")
+  //       }
+  //      }
+  //    }
+  //  }
+
 }
 
 function buildCourseBySearch(title) {
-  columnsFromBackend[0].items.push({ id: uuid(), content:"" + title + ""});
+  columnsFromBackend[1].items.push({ id: uuid(), content:"" + title + ""});
 }
 
 function App() {
@@ -443,9 +476,10 @@ function App() {
   return (
 
    <div>
-    <div>
-        <input placeholder="Enter CS class title or number" onChange={event => setQuery(event.target.value)} />
+    <div className="list">
+        <input placeholder="Enter class name/number" onChange={event => setQuery(event.target.value)} />
       { data.filter(classes => {
+        
       if (query === ''){
         return null;
       }
@@ -525,7 +559,7 @@ function App() {
             >
               <h2  style={{userSelect:"none", color: "#D8DAD4"}}>{column.name}</h2>
               <div style={{display:"flex", marginLeft: "50px", marginRight: "50px" }}>
-                <Droppable droppableId={columnId} key={columnId}>
+                <Droppable droppableId={columnId} key={columnId} mode="virtual">
                   {(provided, snapshot) => {
                     return (
                       <div 
