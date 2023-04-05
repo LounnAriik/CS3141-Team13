@@ -8,7 +8,9 @@
     overflow-y: scroll;
 }
 
-li, a, .transfer{
+ a, .transfer{
+    position:relative;
+    bottom:25px;
     font-family: "Roboto", sans-serif;
     text-decoration: none;
     font-size: 25px;
