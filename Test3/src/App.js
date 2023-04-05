@@ -172,7 +172,7 @@ const onDragEnd = (result, columns, setColumns) => {
     const [removed] = copiedItems.splice(source.index, 1);
     for (var i = 0; i < columnsFromBackend[source.droppableId].items.length; i++) {
       if (columnsFromBackend[source.droppableId].items[i].content == removed.content) {
-        const [test] = columnsFromBackend[source.droppableId].items.splice(i, 1);
+        columnsFromBackend[source.droppableId].items.splice(i, 1);
         break;
       }
     }
@@ -185,6 +185,8 @@ const onDragEnd = (result, columns, setColumns) => {
         items: copiedItems
       }
     });
+    calculateCreditsWork();
+    calculateCreditsTaken();
   }
 };
 
@@ -205,6 +207,8 @@ function clickClass(content){
     }
     alert("Description: " + desc);
     alert("Prereq(s): " + pre + "\n\nCredits(min): " + min + "\n\nCredits(max): " + max);
+    calculateCreditsWork();
+    calculateCreditsTaken();
   }
 }
 
@@ -464,9 +468,6 @@ function updateCourseColumns(clicked){
   //      }
   //    }
   //  }
-  
-  calculateCreditsWork();
-  calculateCredits();
 }
 
 function buildCourseBySearch(title) {
