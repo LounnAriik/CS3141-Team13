@@ -179,7 +179,7 @@ a{
 }
 
 
-.counter {
+.counterTaken {
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   font-size: 25px;
@@ -188,4 +188,15 @@ a{
   position: absolute;
   bottom: 50px;
   right: 200px;
+}
+
+.counterWork {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  color:#D8DAD4;
+  position: absolute;
+  bottom: 50px;
+  left: 200px;
 }
