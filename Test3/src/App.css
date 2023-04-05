@@ -86,7 +86,7 @@ a{
   position: relative;
   height: 120px;
   overflow-y: scroll;
-  margin-right: 0%;
+  width: fit-content;
 }
 .box {
   white-space: nowrap;
@@ -113,6 +113,7 @@ a{
   background-color: #D8DAD4;
   min-width: 100px;
   z-index: 1;
+  font-size: 20px;
 }
 
 .semesterselect-content option{
@@ -151,6 +152,7 @@ a{
   display: block;
   text-align: left;
   user-select: none;
+  font-size: 20px;
 }
 
 .yearselect:hover .yearselect-content{
@@ -162,7 +164,8 @@ a{
   user-select: none;
 }
 
-/* Scroll bar hidden */
-::-webkit-scrollbar{
-  width: 1px;
-}
+.courseList::-webkit-scrollbar{
+  width: 0%;
+  }
+
+
