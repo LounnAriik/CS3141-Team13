@@ -559,7 +559,7 @@ function App() {
             >
               <h2  style={{userSelect:"none", color: "#D8DAD4"}}>{column.name}</h2>
               <div style={{display:"flex", marginLeft: "50px", marginRight: "50px" }}>
-                <Droppable droppableId={columnId} key={columnId}>
+                <Droppable droppableId={columnId} key={columnId} mode="virtual">
                   {(provided, snapshot) => {
                     return (
                       <div 

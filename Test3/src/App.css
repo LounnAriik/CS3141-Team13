@@ -88,6 +88,8 @@ a{
   overflow-y: scroll;
   width: fit-content;
   height: 150px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 .box {
   white-space: nowrap;
