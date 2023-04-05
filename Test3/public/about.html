@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <style>
-      html,
-      body,
-     
-
+     html{
+        height: 90%;
+     }
       body {
         margin: 0;
         background-color: #283246;
         font-family: "Roboto", sans-serif;
+        height:100%;
       }
       li
        {
@@ -41,6 +41,68 @@
             width: 100%;
             transition: width .3s;
         }
+    .aboutCard{
+        display: grid;
+        grid-template-columns: [first] 33.3% [middle] 33.3% [end] 33.3%;
+        grid-template-rows: [top] 20% [middle] auto [secondLast] 10% [last] 15%;
+        position: relative;  
+        margin:auto;
+        background-color: #D8DAD4;
+        border-radius: 20px;
+        width: 80%;
+        height:70%;    
+        top: 50px;
+    }
+    h1{
+       text-align: center;
+        grid-column-start: middle;
+        grid-row-start: top;
+    }
+    .content{
+        text-align: center;
+        grid-column-start: middle;
+        grid-row-start: middle;
+    }
+    img{
+        width:7%;
+        border-radius: 30px;
+    }
+    p{
+        display: inline-block;
+        position: relative;
+        bottom:5px;
+    }
+    .Arik{
+        grid-column: first;
+        grid-row:secondLast;
+        text-align: center;
+    }
+    .Josh1{
+        grid-column: first;
+        grid-row:last;
+        text-align: center;
+    }
+    .Zoe{
+        grid-column: middle;
+        grid-row:secondLast;
+        text-align: center;
+    }
+    .Connor{
+        grid-column: middle;
+        grid-row:last;
+        text-align: center;
+    }
+    .Andrea{
+        grid-column: end;
+        grid-row:secondLast;
+        text-align: center;
+    }
+    .Josh2{
+        grid-column: end;
+        grid-row:last;
+        text-align: center;
+    }
+    
     </style>
     <head>
         <body>
@@ -54,6 +116,39 @@
                     </li>
                 </ul>
             </nav>
+            <div class = "aboutCard">
+                <h1>MTU Scheduling App
+                </h1>
+                <p class="content">
+                    This is our MTU Scheduling App
+                </p>
+                <div class="Arik">
+                    <img src="https://avatars.githubusercontent.com/u/95927852?v=4">
+                    <p>Arik Hamacher</p>
+                    
+                </div>
+                <div class="Josh1">
+                    <img src="https://avatars.githubusercontent.com/u/97369429?s=120&v=4">
+                    <p>Josh Hoefs</p>
+                </div>
+                <div class="Zoe">
+                    <img src="https://avatars.githubusercontent.com/u/123415080?v=4">
+                    <p>Zoe Mazurkiewicz</p>
+                </div>
+                <div class="Andrea">
+                    <img src="https://avatars.githubusercontent.com/u/80191227?s=120&v=4">
+                    <p>Andrea Sarabia</p>
+                </div>
+                <div class="Connor">
+                    <img src="https://avatars.githubusercontent.com/u/82129195?s=120&v=4">
+                    <p>Connor Ward</p>
+                </div>
+                <div class="Josh2">
+                    <img src="https://avatars.githubusercontent.com/u/105823958?s=120&v=4">
+                    <p>Josh Nygaard</p>
+                </div>
+            </div>
         </body>
     </head>
+    
 </html>
