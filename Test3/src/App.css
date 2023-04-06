@@ -8,7 +8,9 @@
     overflow-y: scroll;
 }
 
-li, a, .transfer{
+ a, .transfer{
+    position:relative;
+    bottom:25px;
     font-family: "Roboto", sans-serif;
     text-decoration: none;
     font-size: 25px;
@@ -184,7 +186,7 @@ nav{
 }
 
 
-.counter {
+.counterTaken {
   font-family: "Roboto", sans-serif;
   text-decoration: none;
   font-size: 25px;
@@ -193,4 +195,15 @@ nav{
   position: absolute;
   bottom: 50px;
   right: 200px;
+}
+
+.counterWork {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+  color:#D8DAD4;
+  position: absolute;
+  bottom: 50px;
+  left: 200px;
 }

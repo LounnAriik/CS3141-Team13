@@ -150,11 +150,8 @@ const onDragEnd = (result, columns, setColumns) => {
     const sourceItems = [...sourceColumn.items];
     const destItems = [...destColumn.items];
     const [removed] = sourceItems.splice(source.index, 1);
-    // Start of code that might cause problems
-    columnsFromBackend[source.droppableId].items.splice(columnsFromBackend[source.droppableId].items.indexOf(removed.content), 1);
-    columnsFromBackend[destination.droppableId].items.push({ id: uuid(), content: "" + removed.content + ""});
-    calculateCredits();
-    // End of code that might cause problems
+    columnsFromBackend[source.droppableId].items.splice(source.index, 1);
+    columnsFromBackend[destination.droppableId].items.splice(destination.index, 0, removed);
     destItems.splice(destination.index, 0, removed);
     setColumns({
       ...columns,
@@ -166,11 +163,20 @@ const onDragEnd = (result, columns, setColumns) => {
         ...destColumn,
         items: destItems
       }
-    });  
+    }); 
+    calculateCreditsWork();
+    calculateCreditsTaken(); 
   } else {
     const column = columns[source.droppableId];
     const copiedItems = [...column.items];
     const [removed] = copiedItems.splice(source.index, 1);
+    for (var i = 0; i < columnsFromBackend[source.droppableId].items.length; i++) {
+      if (columnsFromBackend[source.droppableId].items[i].content == removed.content) {
+        columnsFromBackend[source.droppableId].items.splice(i, 1);
+        break;
+      }
+    }
+    columnsFromBackend[destination.droppableId].items.splice(destination.index, 0, removed);
     copiedItems.splice(destination.index, 0, removed);
     setColumns({
       ...columns,
@@ -179,6 +185,8 @@ const onDragEnd = (result, columns, setColumns) => {
         items: copiedItems
       }
     });
+    calculateCreditsWork();
+    calculateCreditsTaken();
   }
 };
 
@@ -199,11 +207,12 @@ function clickClass(content){
     }
     alert("Description: " + desc);
     alert("Prereq(s): " + pre + "\n\nCredits(min): " + min + "\n\nCredits(max): " + max);
-    calculateCredits();
+    calculateCreditsWork();
+    calculateCreditsTaken();
   }
 }
 
-function calculateCredits() {
+function calculateCreditsTaken() {
   var high = 0;
   for (var i = 0; i < columnsFromBackend[2].items.length; i++) {
     var newArray = data.filter(function (el) {
@@ -211,7 +220,18 @@ function calculateCredits() {
     });
     high += newArray[0].maxCredits;
   }
-  document.getElementById("demo").innerHTML = "Credits: " + high;
+  document.getElementById("taken").innerHTML = "Credits: " + high;
+}
+
+function calculateCreditsWork() {
+  var high = 0;
+  for (var i = 0; i < columnsFromBackend[1].items.length; i++) {
+    var newArray = data.filter(function (el) {
+      return el.title == columnsFromBackend[1].items[i].content;
+    });
+    high += newArray[0].maxCredits;
+  }
+  document.getElementById("work").innerHTML = "Credits: " + high;
 }
 
 function referenceAvailableCourses(registrationClass, semester){
@@ -448,8 +468,6 @@ function updateCourseColumns(clicked){
   //      }
   //    }
   //  }
-
-  calculateCredits();
 }
 
 function buildCourseBySearch(title) {
@@ -545,7 +563,8 @@ function App() {
         
        </header>
        
-       <p class="counter" id="demo">Credits: 0</p>
+       <p class="counterWork" id="work">Credits: 8</p>
+       <p class="counterTaken" id="taken">Credits: 0</p>
 
         {Object.entries(columns).map(([columnId, column], index) => {
           return (
