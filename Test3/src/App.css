@@ -22,12 +22,12 @@ header{
     display:flex;
     justify-content:space-between;
     align-items: center;
+    
 }
 li{
     list-style: none;
     display:inline-block;
     padding: 0 20px;
-    
 }
 
 .transfer{
@@ -37,11 +37,19 @@ li{
 }
 .help{
     margin-left:200px;
+    
 }
 a{
     color:#D8DAD4;
     padding-right: 70px;
 }
+
+nav{
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+}
+
   .link::after{
     content: '';
     display: block;
@@ -84,10 +92,9 @@ a{
 }
 .list{
   position: relative;
-  height: 120px;
   overflow-y: scroll;
   width: fit-content;
-  height: 150px;
+  height: 650px;
   margin-left: 20px;
   margin-top: 20px;
 }
