@@ -557,7 +557,7 @@ function App() {
       >
        <header>
         <div className="list">
-        <input placeholder="Enter class name/number" onChange={event => setQuery(event.target.value)} style={{width: "93%" }}/>
+        <input placeholder="Enter course name or number" onChange={event => setQuery(event.target.value)} style={{width: "93%" }}/>
       { data.filter(classes => {
         
       if (query === ''){
