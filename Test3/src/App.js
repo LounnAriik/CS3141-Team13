@@ -474,6 +474,16 @@ function buildCourseBySearch(title) {
   columnsFromBackend[1].items.push({ id: uuid(), content:"" + title + ""});
 }
 
+const contextMenu = document.getElementById("context-menu");
+const scope = document.querySelector("body");
+
+scope.addEventListener("contextmenu", (event) => {event.preventDefault();
+const {clientX:mouseX, clientY:mouseY} = event;
+contextMenu.style.top = `${mouseY}px`;
+contextMenu.style.left = `${mouseX}px`;
+contextMenu.classList.add("visible");
+});
+
 function App() {
   const [query, setQuery] = useState("")
   const [columns, setColumns] = useState(columnsFromBackend);
@@ -494,9 +504,10 @@ function App() {
 
    <div>
     
-
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
-    
+    <div id="context-menu">
+      <div class="delete">Delete</div>
+    </div>
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
