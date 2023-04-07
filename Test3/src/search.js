@@ -2,7 +2,7 @@ import React from "react";
 import data from './response_1678212061808.json'
 
 const Search = () => (
-
+    <div className="search">
     <form action="/" method="get">
         <label htmlFor="header-search">
             <span className="visually-hidden">Search Courses</span>
@@ -17,7 +17,7 @@ const Search = () => (
         
     </form>
 
-
+    </div>
 
 );
 

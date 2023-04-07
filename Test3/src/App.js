@@ -207,8 +207,6 @@ function clickClass(content){
     }
     alert("Description: " + desc);
     alert("Prereq(s): " + pre + "\n\nCredits(min): " + min + "\n\nCredits(max): " + max);
-    calculateCreditsWork();
-    calculateCreditsTaken();
   }
 }
 
@@ -386,6 +384,8 @@ function buildCourseByTransfer() {
   }
   // Prints outcome text
   alert(text);
+  calculateCreditsWork();
+  calculateCreditsTaken();
 }
 
 function getTransferArray() {
@@ -468,10 +468,14 @@ function updateCourseColumns(clicked){
   //      }
   //    }
   //  }
+  calculateCreditsWork();
+  calculateCreditsTaken();
 }
 
 function buildCourseBySearch(title) {
   columnsFromBackend[1].items.push({ id: uuid(), content:"" + title + ""});
+  calculateCreditsWork();
+  calculateCreditsTaken();
 }
 
 const contextMenu = document.getElementById("context-menu");
@@ -548,7 +552,7 @@ function App() {
       >
        <header>
         <div className="list">
-        <input placeholder="Enter class name/number" onChange={event => setQuery(event.target.value)} />
+        <input placeholder="Enter class name/number" onChange={event => setQuery(event.target.value)} style={{width: "93%" }}/>
       { data.filter(classes => {
         
       if (query === ''){
