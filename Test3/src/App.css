@@ -228,3 +228,7 @@ nav{
 #context-menu.visible{
   display: block;
 } 
+
+.search{
+  width: 24%;
+}
