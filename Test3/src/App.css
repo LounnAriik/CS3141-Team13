@@ -47,10 +47,6 @@ a{
     padding-right: 70px;
 }
 
-nav{
-  
-}
-
   .link::after{
     content: '';
     display: block;
