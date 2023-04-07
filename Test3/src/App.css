@@ -19,12 +19,13 @@
 
 
 header{
+  margin-top: 25px;
     position: absolute;
     width: 100%;
     display:flex;
     justify-content:space-between;
     align-items: center;
-    
+    height: 100px;
 }
 li{
     list-style: none;
@@ -95,7 +96,8 @@ nav{
   overflow-y: scroll;
   width: fit-content;
   margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 125px;
+  height: 250px;
 }
 .box {
   white-space: nowrap;
