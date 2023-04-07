@@ -544,7 +544,9 @@ function App() {
     
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
     <div id="context-menu">
-      <div class="delete">Delete</div>
+      <div class="item">Delete</div>
+      <div class="item">Save As</div>
+      <div class="item">Print</div>
     </div>
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}

@@ -217,8 +217,8 @@ nav{
   display: none;
 }
 
-#context-menu .delete{
-  padding: 6px 8px;
+#context-menu .item{
+  padding: 2px 8px;
   font-size: 15px;
   color: black;
   cursor: pointer;
