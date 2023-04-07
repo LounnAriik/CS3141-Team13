@@ -214,6 +214,7 @@ nav{
   width: 150 px;
   background: white;
   border-radius: 5px;
+  display: none;
 }
 
 #context-menu .delete{

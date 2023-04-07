@@ -475,7 +475,7 @@ function buildCourseBySearch(title) {
 }
 
 const contextMenu = document.getElementById("context-menu");
-const scope = document.querySelector("body");
+const scope = document.querySelector("div");
 
 scope.addEventListener("contextmenu", (event) => {event.preventDefault();
 const {clientX:mouseX, clientY:mouseY} = event;
@@ -483,6 +483,44 @@ contextMenu.style.top = `${mouseY}px`;
 contextMenu.style.left = `${mouseX}px`;
 contextMenu.classList.add("visible");
 });
+scope.addEventListener("click", (e) => {
+  if (e.target.offsetParent != contextMenu){
+    contextMenu.classList.remove("visible");
+  }
+});
+scope.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+  const{offsetX: mouseX, offsetY: mouseY} = event;
+  const{normX, normY} = outOfBounds(mouseX, mouseY);
+  contextMenu.style.top = `${normY}px`;
+  contextMenu.style.left = `${normX}px`;
+  contextMenu.classList.remove("visible");
+  setTimeout(() => {contextMenu.classList.add("visible");});
+});
+
+const outOfBounds = (mouseX, mouseY) => {
+  const{
+    left: scopeOfX,
+    top: scopeOfY,
+  } = scope.getBoundingClientRect();
+
+  const scopeX = mouseX - scopeOfX;
+  const scopeY = mouseY - scopeOfY;
+
+  const outOfBoundsX = scopeX + contextMenu.clientWidth > scope.clientWidth;
+  const outOfBoundsY = scopeY + contextMenu.clientHeight > scope.clientHeight;
+  let normX = mouseX;
+  let normY = mouseY;
+
+  if(outOfBoundsX){
+    normX = scopeOfX + scope.clientWidth - contextMenu.clientWidth;
+  }
+
+  if(outOfBoundsY){
+    normY = scopeOfY + scope.clientHeight - contextMenu.clientHeight;
+  }
+  return {normX, normY};
+};
 
 function App() {
   const [query, setQuery] = useState("")
