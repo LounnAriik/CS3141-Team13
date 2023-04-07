@@ -94,7 +94,8 @@ nav{
 .list{
   position: relative;
   overflow-y: scroll;
-  width: fit-content;
+  overflow-x: hidden;
+  width: 24%;
   margin-left: 20px;
   margin-top: 125px;
   height: 250px;
