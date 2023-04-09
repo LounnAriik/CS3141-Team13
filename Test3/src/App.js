@@ -478,49 +478,6 @@ function buildCourseBySearch(title) {
   calculateCreditsTaken();
 }
 
-const contextMenu = document.getElementById("context-menu");
-const scope = document.querySelector("div");
-//gets a menu when right-clicked but stays on the page when you do other things
-scope.addEventListener("contextmenu", (event) => {event.preventDefault();
-const {clientX:mouseX, clientY:mouseY} = event;
-contextMenu.style.top = `${mouseY}px`;
-contextMenu.style.left = `${mouseX}px`;
-contextMenu.classList.add("visible");
-});
-// scope.addEventListener("contextmenu", (event) => {
-//   event.preventDefault();
-//   const{offsetX: mouseX, offsetY: mouseY} = event;
-//   const{normX, normY} = outOfBounds(mouseX, mouseY);
-//   contextMenu.style.top = `${normY}px`;
-//   contextMenu.style.left = `${normX}px`;
-//   contextMenu.classList.remove("visible");
-//   setTimeout(() => {contextMenu.classList.add("visible");});
-// });
-
-// const outOfBounds = (mouseX, mouseY) => {
-//   const{
-//     left: scopeOfX,
-//     top: scopeOfY,
-//   } = scope.getBoundingClientRect();
-
-//   const scopeX = mouseX - scopeOfX;
-//   const scopeY = mouseY - scopeOfY;
-
-//   const outOfBoundsX = scopeX + contextMenu.clientWidth > scope.clientWidth;
-//   const outOfBoundsY = scopeY + contextMenu.clientHeight > scope.clientHeight;
-//   let normX = mouseX;
-//   let normY = mouseY;
-
-//   if(outOfBoundsX){
-//     normX = scopeOfX + scope.clientWidth - contextMenu.clientWidth;
-//   }
-
-//   if(outOfBoundsY){
-//     normY = scopeOfY + scope.clientHeight - contextMenu.clientHeight;
-//   }
-//   return {normX, normY};
-// };
-
 function App() {
   const [query, setQuery] = useState("")
   const [columns, setColumns] = useState(columnsFromBackend);
@@ -541,12 +498,12 @@ function App() {
 
    <div>
     
-    <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
+    {/* <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
     <div id="context-menu">
       <div class="item">Delete</div>
       <div class="item">Save As</div>
       <div class="item">Print</div>
-    </div>
+    </div> */}
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
@@ -690,7 +647,6 @@ function App() {
           );
         })}
       </DragDropContext>      
-    </div>
     </div>
     
   );
