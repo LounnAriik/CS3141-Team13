@@ -89,7 +89,6 @@ a{
 }
 .list{
   position: relative;
-  overflow-y: scroll;
   overflow-x: hidden;
   width: 24%;
   margin-left: 20px;
