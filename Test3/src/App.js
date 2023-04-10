@@ -497,8 +497,8 @@ function App() {
   return (
 
    <div>
-    
-    {/* <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
+    <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
+    {/* 
     <div id="context-menu">
       <div class="item">Delete</div>
       <div class="item">Save As</div>
@@ -648,7 +648,7 @@ function App() {
         })}
       </DragDropContext>      
     </div>
-    
+    </div>
   );
   
 }
