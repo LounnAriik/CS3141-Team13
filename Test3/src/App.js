@@ -481,11 +481,9 @@ function buildCourseBySearch(title) {
 const contextMenu = document.getElementById("context-menu");
 const scope = document.querySelector("div");
 scope.addEventListener("contextmenu", (event) => {event.preventDefault();
-// const{clientX: mouseX, client: mouseY} = event;
-// contextMenu.style.top = `${mouseY}px`;
-// contextMenu.style.left = `${mouseX}px`;
-// contextMenu.classList.add("visible");
 });
+
+
 
 function App() {
   const [query, setQuery] = useState("")
@@ -510,8 +508,6 @@ function App() {
     {/* 
     <div id="context-menu">
       <div class="item">Delete</div>
-      <div class="item">Save As</div>
-      <div class="item">Print</div>
     </div> */}
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
