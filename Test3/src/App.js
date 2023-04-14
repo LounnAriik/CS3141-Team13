@@ -431,8 +431,6 @@ function updateCourseColumns(clicked){
       console.log("print test: " + semesterSelected);
     }
   }
-
-  var tempAvailableCourses = new Array;
   
 
   // Update the other course columns regularly
@@ -442,6 +440,14 @@ function updateCourseColumns(clicked){
   calculateCreditsWork();
   calculateCreditsTaken();
 }
+
+// function preventLosingManuallyAddedCourses(previousWorkspaceCourses, updatedWorspaceCourses){
+//   var tempCurrentWorkspace = new Array();
+
+//   for (var i = 0; i < previousWorkspaceCourses.length; i++){
+//     tempCurrentWorkspace[i] = previousWorkspaceCourses[i];
+//   }
+// }
 
 function buildCourseBySearch(title) {
   columnsFromBackend[1].items.push({ id: uuid(), content:"" + title + ""});
