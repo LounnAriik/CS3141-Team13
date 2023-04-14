@@ -478,6 +478,15 @@ function buildCourseBySearch(title) {
   calculateCreditsTaken();
 }
 
+const contextMenu = document.getElementById("context-menu");
+const scope = document.querySelector("div");
+scope.addEventListener("contextmenu", (event) => {event.preventDefault();
+// const{clientX: mouseX, client: mouseY} = event;
+// contextMenu.style.top = `${mouseY}px`;
+// contextMenu.style.left = `${mouseX}px`;
+// contextMenu.classList.add("visible");
+});
+
 function App() {
   const [query, setQuery] = useState("")
   const [columns, setColumns] = useState(columnsFromBackend);
