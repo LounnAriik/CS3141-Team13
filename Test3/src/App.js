@@ -439,35 +439,6 @@ function updateCourseColumns(clicked){
   columnsFromBackend[1].items = referenceWorkspaceCourses(yearSelected, semesterSelected);
   columnsFromBackend[2].items = referenceTakenCourses(yearSelected, semesterSelected);
 
-  // for (var i = 0; i < columnsFromBackend[0].items.length; i++){
-  //   tempAvailableCourses[i] = columnsFromBackend[0].items[i];
-  // }
-  // columnsFromBackend[0].items = referenceAvailableCourses(yearSelected, semesterSelected);
-
-  // console.log(tempAvailableCourses);  
-
-  // // Update the available course columns, but consider courses that are already in the available courses view.
-  // for (var i = 0; i < tempAvailableCourses.length; i++){
-
-  //   console.log("i: " + i);
-
-  //   // Consider the case that the available courses are in the taken courses. They should not be added if this is the case.
-  //   for (var j = 0; j < columnsFromBackend[2].items.length; j++){
-
-  //     console.log("j: " + j);
-      
-  //     for (var k = 0; k < columnsFromBackend[0].items.length; k++){
-
-  //       console.log("k: " + k);
-  //       // Condition to verify that the course being pushed to the available course column doesn't already exist in
-  //       // That column and that it does not exist in the taken column.
-  //       if (tempAvailableCourses[i] != columnsFromBackend[2].items[j] && tempAvailableCourses[i] != columnsFromBackend[0].items[k]){
-  //         columnsFromBackend[0].items.push(tempAvailableCourses[i]);
-  //         console.log("condition met. Course pushed to available column.")
-  //       }
-  //      }
-  //    }
-  //  }
   calculateCreditsWork();
   calculateCreditsTaken();
 }
@@ -477,6 +448,13 @@ function buildCourseBySearch(title) {
   calculateCreditsWork();
   calculateCreditsTaken();
 }
+
+const contextMenu = document.getElementById("context-menu");
+const scope = document.querySelector("div");
+scope.addEventListener("contextmenu", (event) => {event.preventDefault();
+});
+
+
 
 function App() {
   const [query, setQuery] = useState("")
@@ -501,8 +479,6 @@ function App() {
     {/* 
     <div id="context-menu">
       <div class="item">Delete</div>
-      <div class="item">Save As</div>
-      <div class="item">Print</div>
     </div> */}
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
