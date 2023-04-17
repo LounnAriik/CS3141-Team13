@@ -475,10 +475,6 @@ function buildCourseBySearch(title) {
   calculateCreditsTaken();
 }
 
-const contextMenu = document.getElementById("context-menu");
-const scope = document.querySelector("div");
-scope.addEventListener("contextmenu", (event) => {event.preventDefault();});
-
 function App() {
   const [query, setQuery] = useState("")
   const [columns, setColumns] = useState(columnsFromBackend);
@@ -499,9 +495,6 @@ function App() {
 
    <div>
     <div className = 'head' style={{ display: "flex", justifyContent: "center", height: "100%"}}>
-    <div id="context-menu">
-      <div class="item">Delete</div>
-    </div>
       <DragDropContext
         onDragEnd={result => onDragEnd(result, columns, setColumns)}
       >
