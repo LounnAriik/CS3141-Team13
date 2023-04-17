@@ -449,6 +449,26 @@ function updateCourseColumns(clicked){
 //   }
 // }
 
+
+// function buildCoursesWithMetPrereqs(takenCourses){
+
+//   takenCourses = columnsFromBackend[2].items;
+//   var intermediate = new Array;
+
+//   for (var i = 0; i < columnsFromBackend[2].items.length; i++){
+
+//   }
+
+// }
+
+// function verifyPrereqs (classes, TakenCourses){
+//   for (var TakenVourse : TakenCourses){
+//     if (classes.prereqs.contains(TakenCourse.crse)){
+//       return classes.title
+//     }
+//   }
+// }
+
 function buildCourseBySearch(title) {
   columnsFromBackend[1].items.push({ id: uuid(), content:"" + title + ""});
   calculateCreditsWork();
