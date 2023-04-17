@@ -421,14 +421,12 @@ function updateCourseColumns(clicked){
   if (firstChar == 'y'){
     if (document.getElementById(clicked).value != null) {
       yearSelected = document.getElementById(clicked).value;
-      console.log("print test: " + yearSelected);
     }
   }
 
   if (firstChar == 's'){
     if (document.getElementById(clicked).value != null) {
       semesterSelected = document.getElementById(clicked).value;
-      console.log("print test: " + semesterSelected);
     }
   }
   
@@ -450,6 +448,7 @@ function updateCourseColumns(clicked){
 // }
 
 
+
 // function buildCoursesWithMetPrereqs(takenCourses){
 
 //   takenCourses = columnsFromBackend[2].items;
@@ -459,12 +458,26 @@ function updateCourseColumns(clicked){
 
 //   }
 
+//   data.filter(classes => {
+
+
+//   })
+
 // }
 
-// function verifyPrereqs (classes, TakenCourses){
-//   for (var TakenVourse : TakenCourses){
-//     if (classes.prereqs.contains(TakenCourse.crse)){
-//       return classes.title
+
+
+// function preventDuplicatesInSearchedCourses(takenClasses){
+
+//   var searchableCoursesWithoutDuplicates = new Array;
+
+//   for (var i = 0; i < columnsFromBackend[1].items.length;  i++){
+
+//     for (var j = 0; j < takenClass.length; j++){
+
+//       if (takenClasses.title == columnsFromBackend[1].items[i].content){
+//         takenClasses.remove
+//       }
 //     }
 //   }
 // }
@@ -529,6 +542,19 @@ function App() {
             return null;
           }
       }
+
+      // for (var i = 0; i < columnsFromBackend[1].items.length; i++) {
+      //   prompt(columnsFromBackend[1].items[i].content);
+      //   if (classes.title == columnsFromBackend[1].items[i].content){
+      //     return null;
+      //   }
+      // }
+
+      // for (var i = 0; i < columnsFromBackend[2].items.length; i++) {
+      //   if (classes.title == columnsFromBackend[2].items[i].content){
+      //     return null;
+      //   }
+      // }
       
       }).map((classes, index) => (
         <div className="box" key={index} onClick={() => {buildCourseBySearch(classes.title)}}>
